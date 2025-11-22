@@ -6,6 +6,7 @@ from sqlmodel import Session, select
 
 from .models import (
     AvailabilitySlot,
+    BillingStatus,
     Dentistry,
     KnowledgeBaseEntry,
     Patient,
@@ -25,6 +26,7 @@ def seed_data(session: Session) -> None:
         address="123 Main Street, Springfield",
         phone="555-123-4567",
         email="hello@brightsmiles.test",
+        billing_status=BillingStatus.active,
     )
     session.add(bright_smiles)
     session.commit()

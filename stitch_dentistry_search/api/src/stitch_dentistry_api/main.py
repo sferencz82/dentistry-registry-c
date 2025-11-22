@@ -4,7 +4,7 @@ from fastapi import FastAPI
 
 from .config import get_settings
 from .migrations import run_migrations
-from .routers import appointments, chat, dentistry, knowledge_base, services, staff
+from .routers import appointments, billing, chat, dentistry, knowledge_base, services, staff
 from .seeding import seed_data
 from .db import engine
 from sqlmodel import Session
@@ -54,3 +54,4 @@ app.include_router(staff.router)
 app.include_router(appointments.router)
 app.include_router(chat.router)
 app.include_router(knowledge_base.router)
+app.include_router(billing.router)
