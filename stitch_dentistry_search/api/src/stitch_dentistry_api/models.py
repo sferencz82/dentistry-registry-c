@@ -144,6 +144,17 @@ class PatientRead(PatientBase):
     id: int
 
 
+class ContactDetails(SQLModel):
+    email: str | None = None
+    phone: str | None = None
+
+
+class DeliveryPreference(str, Enum):
+    email = "email"
+    sms = "sms"
+    both = "both"
+
+
 class BookingBase(SQLModel):
     dentistry_id: int = Field(foreign_key="dentistry.id")
     service_id: int = Field(foreign_key="service.id")
@@ -166,6 +177,8 @@ class BookingCreate(SQLModel):
     slot_id: int
     patient_id: int | None = None
     patient: PatientCreate | None = None
+    contact_details: ContactDetails | None = None
+    delivery_preference: DeliveryPreference = DeliveryPreference.email
 
 
 class BookingRead(BookingBase):
@@ -177,3 +190,8 @@ class BookingConfirmation(SQLModel):
     booking: BookingRead
     patient_message: str
     dentistry_message: str
+    patient_contact: ContactDetails
+    location: str
+    map_link: str
+    access_instructions: str
+    price_estimate: float
