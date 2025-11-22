@@ -5,16 +5,29 @@
   "scripts": {
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "test": "jest --runInBand",
-    "build": "tsc --noEmit"
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "6.6.1",
+    "@react-navigation/native": "6.1.16",
+    "@react-navigation/native-stack": "6.9.26",
+    "cross-fetch": "4.0.0",
     "react": "18.2.0",
     "react-native": "0.74.2",
-    "react-native-web": "0.19.10"
+    "react-native-gesture-handler": "2.16.2",
+    "react-native-safe-area-context": "4.10.5",
+    "react-native-screens": "3.31.1",
+    "react-native-web": "0.19.10",
+    "zustand": "4.5.4"
   },
   "devDependencies": {
     "@testing-library/jest-native": "5.4.3",
+    "@testing-library/react-native": "12.5.1",
     "@types/jest": "29.5.12",
     "@types/react": "18.2.21",
     "@types/react-native": "0.73.0",

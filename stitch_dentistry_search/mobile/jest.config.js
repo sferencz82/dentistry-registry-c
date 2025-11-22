@@ -9,5 +9,5 @@ module.exports = {
   moduleNameMapper: {
     '^react-native$': 'react-native-web'
   },
-  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect']
+  setupFilesAfterEnv: ['<rootDir>/src/jest.setup.ts']
 };
