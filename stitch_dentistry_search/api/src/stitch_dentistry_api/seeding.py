@@ -7,6 +7,7 @@ from sqlmodel import Session, select
 from .models import (
     AvailabilitySlot,
     Dentistry,
+    KnowledgeBaseEntry,
     Patient,
     Service,
     Staff,
@@ -45,6 +46,23 @@ def seed_data(session: Session) -> None:
     )
     session.add(cleaning)
     session.add(exam)
+    session.commit()
+
+    faqs = [
+        KnowledgeBaseEntry(
+            dentistry_id=bright_smiles.id,
+            question="What are your weekend hours?",
+            answer="We are open from 9am to 2pm on Saturdays and closed on Sundays.",
+            category="hours",
+        ),
+        KnowledgeBaseEntry(
+            dentistry_id=bright_smiles.id,
+            question="Do you accept emergency appointments?",
+            answer="Yes, we keep a few same-day slots for urgent cases. Please call ahead if possible.",
+            category="services",
+        ),
+    ]
+    session.add_all(faqs)
     session.commit()
 
     dr_john = Staff(
