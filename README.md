@@ -1,64 +1,104 @@
 # Stitch Dentistry Registry
 
-This repository contains scaffolding for the Stitch Dentistry platform across web, mobile, shared libraries, and the FastAPI backend. Each package ships with linting, formatting, testing, and build scripts plus environment templates to ease local setup.
+Documentation and scaffolding for the Stitch Dentistry platform across the web client, mobile shell, shared TypeScript utilities, and FastAPI backend. Use this repo to prototype search, booking, and billing flows locally or in CI/CD.
 
-## Project layout
-- `stitch_dentistry_search/web` – React + Vite web client.
-- `stitch_dentistry_search/mobile` – React Native-style mobile scaffold using TypeScript.
-- `stitch_dentistry_search/shared` – Shared TypeScript models and utilities.
-- `stitch_dentistry_search/api` – FastAPI backend skeleton with configuration loader and health check.
-- `infra/` – Placeholder for infrastructure definitions and shared environment variables.
+## Architecture
+- **Web (`stitch_dentistry_search/web`)**: React + Vite single-page app with chat assist (`ChatSupport.tsx`), API adapter (`api.ts`), and Jest/RTL tests.
+- **Mobile (`stitch_dentistry_search/mobile`)**: React Native scaffold with bottom-tab navigation, Zustand store, and mocked API client for appointments/chat.
+- **Shared (`stitch_dentistry_search/shared`)**: Lightweight TypeScript env loader shared by web/mobile bundles.
+- **API (`stitch_dentistry_search/api`)**: FastAPI + SQLModel service with migrations, seed data, and routers for dentistries, services, staff/availability, appointments, chat booking, billing, and FAQs. Swagger UI is exposed at `http://localhost:8000/docs` when the API is running.
+- **Infrastructure (`infra/`)**: Docker Compose stack, Kubernetes manifests, and Helm chart for API, frontend, and PostgreSQL wiring.
+- **Design mocks (`stitch_dentistry_search/*/screen.png`)**: Reference screens for flows such as practitioner selection and patient dashboard (for example, `stitch_dentistry_search/practitioner_selection/screen.png`, `stitch_dentistry_search/patient_dashboard/screen.png`).
 
-## Getting started
-1. Copy the environment templates for each package and adjust values as needed:
-   ```bash
-   cp stitch_dentistry_search/web/.env.example stitch_dentistry_search/web/.env
-   cp stitch_dentistry_search/mobile/.env.example stitch_dentistry_search/mobile/.env
-   cp stitch_dentistry_search/shared/.env.example stitch_dentistry_search/shared/.env
-   cp stitch_dentistry_search/api/.env.example stitch_dentistry_search/api/.env
-   cp infra/.env.example infra/.env
-   ```
+## Prerequisites
+- Node.js 20+, npm
+- Python 3.11+
+- Docker / Docker Compose (for containerized runs)
+- Optional: kubectl + Helm for Kubernetes workflows
 
-2. Install dependencies per package (use `npm install` for Node projects and `python -m pip install .[dev]` for the API).
+## Environment configuration
+Copy the provided environment templates before running any package:
 
-3. Run quality checks:
-   - Web: `npm run lint`, `npm run format`, `npm test`, `npm run build` inside `stitch_dentistry_search/web`.
-   - Mobile: `npm run lint`, `npm run format`, `npm test`, `npm run build` inside `stitch_dentistry_search/mobile`.
-   - Shared: `npm run lint`, `npm run format`, `npm test`, `npm run build` inside `stitch_dentistry_search/shared`.
-   - API: `ruff check .`, `pytest`, and `python -m compileall src` inside `stitch_dentistry_search/api`.
+```bash
+cp stitch_dentistry_search/web/.env.example stitch_dentistry_search/web/.env
+cp stitch_dentistry_search/mobile/.env.example stitch_dentistry_search/mobile/.env
+cp stitch_dentistry_search/shared/.env.example stitch_dentistry_search/shared/.env
+cp stitch_dentistry_search/api/.env.example stitch_dentistry_search/api/.env
+cp infra/.env.example infra/.env
+```
 
-GitHub Actions (`.github/workflows/ci.yml`) mirrors these steps on pushes and pull requests.
+Key variables:
+- Web: `VITE_API_URL`, `VITE_APP_NAME`
+- Mobile: `MOBILE_API_URL`, `MOBILE_ENV`
+- Shared: `MODEL_VERSION`, `SCHEMA_VERSION`
+- API: `API_HOST`, `API_PORT`, `API_DEBUG`, `API_DATABASE_URL`
 
-## Local deployment with Docker
+## Running locally
+### Web (Vite)
+```bash
+cd stitch_dentistry_search/web
+npm install
+npm run dev
+```
 
-Build and run the full stack with Docker Compose (requires copying `infra/.env.example` to `infra/.env` to supply database credentials and Vite build overrides):
+### Mobile (React Native scaffold)
+The project is structured for RN bundlers; to exercise the TypeScript/logic locally:
+```bash
+cd stitch_dentistry_search/mobile
+npm install
+npm run build   # type-only build
+npm test
+```
+
+### Shared utilities
+```bash
+cd stitch_dentistry_search/shared
+npm install
+npm test
+```
+
+### API (FastAPI)
+```bash
+cd stitch_dentistry_search/api
+python -m pip install --upgrade pip
+python -m pip install .[dev]
+uvicorn stitch_dentistry_api.main:app --reload --host 0.0.0.0 --port 8000
+```
+Swagger UI: http://localhost:8000/docs
+Health: http://localhost:8000/health
+
+## Quality checks
+- **Web**: `npm run lint`, `npm run format`, `npm test`, `npm run build`
+- **Mobile**: `npm run lint`, `npm run typecheck`, `npm test`, `npm run build`
+- **Shared**: `npm run lint`, `npm run format`, `npm test`, `npm run build`
+- **API**: `ruff check .`, `pytest`, `python -m compileall src`
+
+## Continuous Integration
+`.github/workflows/ci.yml` executes the same lint/test/build steps for all packages, then builds/pushes Docker images for the API and frontend, and lint/templates Kubernetes manifests via Helm + kustomize.
+
+## Docker Compose
+From the repo root, run the full stack (PostgreSQL, API, frontend):
 
 ```bash
 docker compose up --build
 ```
 
-Services are available at:
-
-- API: http://localhost:8000/health
+- API: http://localhost:8000 (health at `/health`, docs at `/docs`)
 - Frontend: http://localhost:5173
 
-## Cloud deployment (Kubernetes)
+## Kubernetes / Helm
+- Validate static manifests:
+  ```bash
+  kubectl kustomize infra/k8s | kubectl apply --dry-run=client -f -
+  ```
+- Render or install the Helm chart:
+  ```bash
+  helm lint infra/helm/dentistry-registry
+  helm upgrade --install dentistry ./infra/helm/dentistry-registry \
+    --set image.repository=ghcr.io/<owner>/dentistry-api \
+    --set frontendImage.repository=ghcr.io/<owner>/dentistry-frontend
+  ```
 
-Kubernetes manifests live in `infra/k8s` and are also packaged as a Helm chart under `infra/helm/dentistry-registry`.
-
-Validate the static manifests with:
-
-```bash
-kubectl kustomize infra/k8s | kubectl apply --dry-run=client -f -
-```
-
-Render or install the Helm chart (override the image repositories to match your registry):
-
-```bash
-helm lint infra/helm/dentistry-registry
-helm upgrade --install dentistry ./infra/helm/dentistry-registry \
-  --set image.repository=ghcr.io/<owner>/dentistry-api \
-  --set frontendImage.repository=ghcr.io/<owner>/dentistry-frontend
-```
-
-The chart provisions ConfigMaps for API/frontend configuration, Secrets for PostgreSQL credentials, Deployments for the API and frontend, and a StatefulSet for PostgreSQL storage.
+## Additional resources
+- API usage, data models, billing, and chat flow details: see [`docs/`](docs/).
+- Contribution guidelines: see [`CONTRIBUTING.md`](CONTRIBUTING.md).
