@@ -17,3 +17,7 @@ Run quality checks with the configured tools:
 ruff check .
 pytest
 ```
+
+## API surface
+
+The FastAPI app exposes CRUD endpoints for dentistries, services, staff (with availability), and appointment booking/availability queries. Interactive documentation is available at [`/docs`](http://localhost:8000/docs) when running the dev server.
