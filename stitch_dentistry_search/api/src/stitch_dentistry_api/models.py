@@ -195,3 +195,28 @@ class BookingConfirmation(SQLModel):
     map_link: str
     access_instructions: str
     price_estimate: float
+
+
+class KnowledgeBaseEntryBase(SQLModel):
+    dentistry_id: int = Field(foreign_key="dentistry.id")
+    question: str
+    answer: str
+    category: str | None = None
+
+
+class KnowledgeBaseEntry(KnowledgeBaseEntryBase, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+
+
+class KnowledgeBaseEntryCreate(KnowledgeBaseEntryBase):
+    pass
+
+
+class KnowledgeBaseEntryRead(KnowledgeBaseEntryBase):
+    id: int
+
+
+class KnowledgeBaseEntryUpdate(SQLModel):
+    question: str | None = None
+    answer: str | None = None
+    category: str | None = None
