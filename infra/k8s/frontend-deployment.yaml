@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dentistry-frontend
+  namespace: default
+  labels:
+    app: dentistry-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dentistry-frontend
+  template:
+    metadata:
+      labels:
+        app: dentistry-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/dentistry-registry-c/dentistry-frontend:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: VITE_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-config
+                  key: VITE_API_URL
+            - name: VITE_APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-config
+                  key: VITE_APP_NAME
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dentistry-frontend
+  namespace: default
+  labels:
+    app: dentistry-frontend
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    app: dentistry-frontend

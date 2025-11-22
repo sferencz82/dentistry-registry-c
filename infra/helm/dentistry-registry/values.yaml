@@ -1,0 +1,50 @@
+image:
+  repository: ghcr.io/dentistry-registry-c/dentistry-api
+  tag: latest
+  pullPolicy: IfNotPresent
+
+frontendImage:
+  repository: ghcr.io/dentistry-registry-c/dentistry-frontend
+  tag: latest
+  pullPolicy: IfNotPresent
+
+postgres:
+  image: postgres:15-alpine
+  user: dentistry
+  password: dentistry
+  database: dentistry
+  storage: 1Gi
+  persistenceEnabled: true
+
+api:
+  replicaCount: 2
+  service:
+    type: ClusterIP
+    port: 8000
+  config:
+    host: "0.0.0.0"
+    port: "8000"
+    debug: "false"
+    billingProvider: stripe
+  resources: {}
+
+frontend:
+  replicaCount: 2
+  service:
+    type: ClusterIP
+    port: 80
+  config:
+    apiUrl: http://dentistry-api:8000
+    appName: StitchDentistryWeb
+  resources: {}
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: dentistry.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
