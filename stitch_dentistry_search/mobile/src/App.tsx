@@ -1,17 +1,13 @@
-import { useMemo } from 'react';
-import { View, Text } from 'react-native';
-import { loadMobileEnv } from './env';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { RootNavigator } from './navigation/RootNavigator';
+import { ThemeProvider } from './theme';
 
-export const App = () => {
-  const env = useMemo(loadMobileEnv, []);
-
-  return (
-    <View>
-      <Text accessibilityLabel="title">Stitch Dentistry Mobile</Text>
-      <Text accessibilityLabel="environment">Environment: {env.environment}</Text>
-      <Text accessibilityLabel="api-url">API URL: {env.apiUrl}</Text>
-    </View>
-  );
-};
+export const App = () => (
+  <ThemeProvider>
+    <SafeAreaProvider>
+      <RootNavigator />
+    </SafeAreaProvider>
+  </ThemeProvider>
+);
 
 export default App;
