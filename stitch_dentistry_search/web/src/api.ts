@@ -11,13 +11,17 @@ export type Service = {
   name: string;
   durationMinutes: number;
   price?: number;
+  description?: string;
+  active?: boolean;
 };
 
 export type StaffMember = {
   id: string;
   name: string;
   title: string;
-  services: string[];
+  role?: string;
+  specialties?: string[];
+  services?: string[];
 };
 
 export type AccessInfo = {
@@ -26,6 +30,18 @@ export type AccessInfo = {
   phone?: string;
   transit?: string;
   parking?: string;
+};
+
+export type PracticeProfile = {
+  name: string;
+  address: string;
+  city: string;
+  state?: string;
+  postalCode?: string;
+  phone?: string;
+  email?: string;
+  contactName?: string;
+  website?: string;
 };
 
 export type DentistryDetail = DentistrySummary & {
@@ -60,6 +76,14 @@ export type BookingRequest = {
 export type BookingResponse = {
   confirmationNumber: string;
   message: string;
+};
+
+export type BillingStatus = {
+  plan: string;
+  status: 'active' | 'past_due' | 'trialing' | 'canceled';
+  renewalDate?: string;
+  amountDueCents?: number;
+  paymentMethod?: string;
 };
 
 const toJson = async <T>(response: Response): Promise<T> => {
@@ -98,7 +122,50 @@ export const createApiClient = (baseUrl: string) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
         ...init
-      })
+      }),
+    getPracticeProfile: (practiceId: string, init?: RequestInit) =>
+      request<PracticeProfile>(`/practices/${practiceId}/profile`, init),
+    updatePracticeProfile: (practiceId: string, payload: PracticeProfile, init?: RequestInit) =>
+      request<PracticeProfile>(`/practices/${practiceId}/profile`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        ...init
+      }),
+    getServices: (practiceId: string, init?: RequestInit) =>
+      request<Service[]>(`/practices/${practiceId}/services`, init),
+    createService: (practiceId: string, payload: Omit<Service, 'id'>, init?: RequestInit) =>
+      request<Service>(`/practices/${practiceId}/services`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        ...init
+      }),
+    getStaffRoster: (practiceId: string, init?: RequestInit) =>
+      request<StaffMember[]>(`/practices/${practiceId}/staff`, init),
+    updateStaffMember: (
+      practiceId: string,
+      staffId: string,
+      payload: Partial<StaffMember>,
+      init?: RequestInit
+    ) =>
+      request<StaffMember>(`/practices/${practiceId}/staff/${staffId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        ...init
+      }),
+    getPracticeAvailability: (practiceId: string, init?: RequestInit) =>
+      request<AvailabilitySlot[]>(`/practices/${practiceId}/availability`, init),
+    addAvailabilitySlot: (practiceId: string, payload: AvailabilitySlot, init?: RequestInit) =>
+      request<AvailabilitySlot>(`/practices/${practiceId}/availability`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        ...init
+      }),
+    getBillingStatus: (practiceId: string, init?: RequestInit) =>
+      request<BillingStatus>(`/practices/${practiceId}/billing`, init)
   };
 };
 

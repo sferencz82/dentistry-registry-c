@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-describe('App shell', () => {
-  test('renders core sections for dentistry search and booking', () => {
+describe('Practice admin shell', () => {
+  test('renders admin sections for practice management', () => {
     render(<App />);
 
-    expect(screen.getByText(/Stitch Dentistry Finder/)).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Dentistry search/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Dentistry detail/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Provider selection/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Nearest availability/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Booking confirmation/i })).toBeInTheDocument();
+    expect(screen.getByText(/Practice Administration/)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Profile/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Services/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Staff roster/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Availability editor/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Billing & subscription/i })).toBeInTheDocument();
   });
 });
