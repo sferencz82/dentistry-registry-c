@@ -24,3 +24,14 @@ def test_appointment_booking_and_availability(client):
     refreshed = client.get("/appointments/availability", params={"dentistry_id": 1}).json()
     refreshed_ids = {item["id"] for item in refreshed}
     assert slot["id"] not in refreshed_ids, "Booked slot should be unavailable"
+
+
+def test_closest_availability_endpoint(client):
+    payload = {"dentistry_id": 1, "staff_id": 1, "service_id": 1}
+    response = client.get("/appointments/closest", params=payload)
+    assert response.status_code == 200
+
+    closest = response.json()
+    assert closest["dentistry_id"] == payload["dentistry_id"]
+    assert closest["staff_id"] == payload["staff_id"]
+    assert closest["is_booked"] is False

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import date, datetime, timedelta, timezone
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 
 from ..db import get_session
@@ -51,6 +51,59 @@ def appointment_availability(
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Service not offered by the dentistry")
 
     return session.exec(query).all()
+
+
+@router.get("/closest", response_model=AvailabilityRead)
+def closest_available_appointment(
+    dentistry_id: int,
+    staff_id: int,
+    service_id: int,
+    target_time: datetime | None = None,
+    session: Session = Depends(get_session),
+):
+    dentistry = session.get(Dentistry, dentistry_id)
+    if not dentistry:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Dentistry not found")
+
+    service = session.get(Service, service_id)
+    if not service or service.dentistry_id != dentistry.id:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST, detail="Service must belong to the dentistry"
+        )
+
+    staff_member = session.get(Staff, staff_id)
+    if not staff_member or staff_member.dentistry_id != dentistry.id:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Staff not found")
+
+    reference_time = target_time or datetime.now(timezone.utc)
+    if reference_time.tzinfo is None:
+        reference_time = reference_time.replace(tzinfo=timezone.utc)
+
+    query = (
+        select(AvailabilitySlot)
+        .where(
+            AvailabilitySlot.dentistry_id == dentistry.id,
+            AvailabilitySlot.staff_id == staff_member.id,
+            AvailabilitySlot.is_booked.is_(False),
+        )
+        .order_by(AvailabilitySlot.start_time)
+    )
+    slots = session.exec(query).all()
+    if not slots:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No availability found")
+
+    def _distance(slot: AvailabilitySlot) -> float:
+        return abs((slot.start_time - reference_time).total_seconds())
+
+    closest = min(slots, key=_distance)
+    slot_duration = closest.end_time - closest.start_time
+    if slot_duration < timedelta(minutes=service.duration_minutes):
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Closest availability cannot fit the requested service",
+        )
+
+    return closest
 
 
 def _get_patient(session: Session, patient_id: int | None, patient_payload: PatientCreate | None) -> Patient:
