@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-config
+  labels:
+    app: dentistry-api
+  namespace: default
+data:
+  API_HOST: "0.0.0.0"
+  API_PORT: "8000"
+  API_DEBUG: "false"
+  API_BILLING_PROVIDER: "stripe"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+  labels:
+    app: dentistry-frontend
+  namespace: default
+data:
+  VITE_API_URL: "http://dentistry-api:8000"
+  VITE_APP_NAME: "StitchDentistryWeb"

@@ -28,3 +28,37 @@ This repository contains scaffolding for the Stitch Dentistry platform across we
    - API: `ruff check .`, `pytest`, and `python -m compileall src` inside `stitch_dentistry_search/api`.
 
 GitHub Actions (`.github/workflows/ci.yml`) mirrors these steps on pushes and pull requests.
+
+## Local deployment with Docker
+
+Build and run the full stack with Docker Compose (requires copying `infra/.env.example` to `infra/.env` to supply database credentials and Vite build overrides):
+
+```bash
+docker compose up --build
+```
+
+Services are available at:
+
+- API: http://localhost:8000/health
+- Frontend: http://localhost:5173
+
+## Cloud deployment (Kubernetes)
+
+Kubernetes manifests live in `infra/k8s` and are also packaged as a Helm chart under `infra/helm/dentistry-registry`.
+
+Validate the static manifests with:
+
+```bash
+kubectl kustomize infra/k8s | kubectl apply --dry-run=client -f -
+```
+
+Render or install the Helm chart (override the image repositories to match your registry):
+
+```bash
+helm lint infra/helm/dentistry-registry
+helm upgrade --install dentistry ./infra/helm/dentistry-registry \
+  --set image.repository=ghcr.io/<owner>/dentistry-api \
+  --set frontendImage.repository=ghcr.io/<owner>/dentistry-frontend
+```
+
+The chart provisions ConfigMaps for API/frontend configuration, Secrets for PostgreSQL credentials, Deployments for the API and frontend, and a StatefulSet for PostgreSQL storage.

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "dentistry-registry.fullname" . }}-api-config
+  labels:
+    {{- include "dentistry-registry.labels" . | nindent 4 }}
+data:
+  API_HOST: {{ .Values.api.config.host | quote }}
+  API_PORT: {{ .Values.api.config.port | quote }}
+  API_DEBUG: {{ .Values.api.config.debug | quote }}
+  API_BILLING_PROVIDER: {{ .Values.api.config.billingProvider | quote }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "dentistry-registry.fullname" . }}-frontend-config
+  labels:
+    {{- include "dentistry-registry.labels" . | nindent 4 }}
+data:
+  VITE_API_URL: {{ .Values.frontend.config.apiUrl | quote }}
+  VITE_APP_NAME: {{ .Values.frontend.config.appName | quote }}

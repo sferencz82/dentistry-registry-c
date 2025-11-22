@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dentistry-api
+  namespace: default
+  labels:
+    app: dentistry-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dentistry-api
+  template:
+    metadata:
+      labels:
+        app: dentistry-api
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/dentistry-registry-c/dentistry-api:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: API_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: API_HOST
+            - name: API_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: API_PORT
+            - name: API_DEBUG
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: API_DEBUG
+            - name: API_BILLING_PROVIDER
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: API_BILLING_PROVIDER
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_DB
+            - name: API_DATABASE_URL
+              value: "postgresql+psycopg://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@dentistry-db:5432/$(POSTGRES_DB)"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dentistry-api
+  namespace: default
+  labels:
+    app: dentistry-api
+spec:
+  ports:
+    - port: 8000
+      targetPort: 8000
+      protocol: TCP
+      name: http
+  selector:
+    app: dentistry-api

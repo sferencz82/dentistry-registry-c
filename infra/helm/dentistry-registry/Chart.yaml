@@ -1,0 +1,6 @@
+apiVersion: v2
+name: dentistry-registry
+description: Helm chart for Stitch Dentistry API, frontend, and database
+version: 0.1.0
+appVersion: "0.1.0"
+type: application
