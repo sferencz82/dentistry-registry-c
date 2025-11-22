@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Choose Your Practitioner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1990e6",
+              "background-light": "#f6f7f8",
+              "background-dark": "#111a21",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root">
+<main class="flex-1 pb-24">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-10 flex items-center bg-background-light/80 dark:bg-background-dark/80 p-4 pb-3 backdrop-blur-sm">
+<div class="flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">arrow_back</span>
+</div>
+<h1 class="flex-1 text-center text-lg font-bold text-gray-900 dark:text-gray-50 pr-10">Choose Practitioner</h1>
+</div>
+<!-- Service Context -->
+<div class="px-4 pb-4">
+<div class="flex items-center gap-2 rounded-lg bg-gray-100 dark:bg-white/10 p-3">
+<p class="text-sm font-medium text-gray-600 dark:text-gray-300">For Service:</p>
+<p class="text-sm font-semibold text-gray-800 dark:text-gray-100">Annual Check-up &amp; Cleaning</p>
+</div>
+</div>
+<!-- Practitioner List -->
+<div class="flex flex-col gap-3 px-4">
+<!-- Practitioner Card 1 -->
+<label class="group relative cursor-pointer">
+<input class="peer sr-only" name="practitioner" type="radio"/>
+<div class="flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 ring-2 ring-transparent transition-all peer-checked:border-primary peer-checked:ring-primary/20">
+<img class="h-16 w-16 shrink-0 rounded-full object-cover" data-alt="Professional headshot of Dr. Emily Carter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXR-HI135cFV3_pF1FmdbVIKHLZg4OIlDSIWMbGMzYb_IPYVP9V7YtdyTDyX1FdaZ_2sgTDafjAZ8MbXN9sTOUEHap_WerQcXk4rcUXnlILpiUHsm_CkypyWPqbecYoda6bIxlUXiEIakLuSC-89wOp2My59Bg9unyqMkaHibJ6tZBkvqCvEzfe5xnC2IeO2Abs-fJ2QIT75I9jbXNBB2JzRDUPlbS0EBbs1hfOJPuD96I90qoQ2ZBIkRf6M0FURd93AK-qVrf0bF4"/>
+<div class="flex flex-1 flex-col justify-center gap-0.5">
+<p class="text-base font-semibold text-gray-900 dark:text-gray-50">Dr. Emily Carter</p>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">General Dentist</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Specializes in pediatric and family dentistry.</p>
+</div>
+<div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 peer-checked:border-primary peer-checked:bg-primary">
+<span class="material-symbols-outlined text-sm text-white opacity-0 transition-opacity peer-checked:opacity-100">check</span>
+</div>
+</div>
+</label>
+<!-- Practitioner Card 2 -->
+<label class="group relative cursor-pointer">
+<input class="peer sr-only" name="practitioner" type="radio"/>
+<div class="flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 ring-2 ring-transparent transition-all peer-checked:border-primary peer-checked:ring-primary/20">
+<img class="h-16 w-16 shrink-0 rounded-full object-cover" data-alt="Professional headshot of Dr. Ben Adams" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJno4d2GTNgiZx9ry9iWYcZk_so2tvyob6Ya1S4LwfRo7GjL_FZ6gIW9Dw83CWurJn1-gEgPODfe4OBTDJh_utk5yiXHB8gAnVyCnooi-D5Dt1q7u794TpjvjHOrjXhFli2GKVe5GEqIYhVcRo1-C_d-7hpff_7-sk_b52f2-xd2BpcJwd7jvnDlUmvjiaI8fxKJh8iiP-8HpSttpK9Iusi4eYOQIpQ3mBkbizDnXf4txUUXyG1EF9eOO1BeRVWrH3AeKToFlFkIDV"/>
+<div class="flex flex-1 flex-col justify-center gap-0.5">
+<p class="text-base font-semibold text-gray-900 dark:text-gray-50">Dr. Ben Adams</p>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Dental Hygienist</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Passionate about preventative care and patient education.</p>
+</div>
+<div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 peer-checked:border-primary peer-checked:bg-primary">
+<span class="material-symbols-outlined text-sm text-white opacity-0 transition-opacity peer-checked:opacity-100">check</span>
+</div>
+</div>
+</label>
+<!-- Practitioner Card 3 -->
+<label class="group relative cursor-pointer">
+<input class="peer sr-only" name="practitioner" type="radio"/>
+<div class="flex items-center gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 ring-2 ring-transparent transition-all peer-checked:border-primary peer-checked:ring-primary/20">
+<img class="h-16 w-16 shrink-0 rounded-full object-cover" data-alt="Professional headshot of Dr. Olivia Chen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1n9JOJ3UylNQXPfzctg3eisAzBmeJaEVuMa818z9lQfkj4-EM3l18V6AcCuXqBbuz95tpT2zFBj60Rly6TsRLCNjXRP_oYXK_9Xmyaq0nIP1b5xvkkrc2uKsv9Dt7ilvI5cxbJoVIAO2ptDEWiiswKUQxLcG1bmYyEHlZvQ9s5Kv3AC4la7Md9c7Ky1QxVCQtGPbHu28v0w3wSTfhwOcJg7TZOLzRcTdvOn2sPprg_o7xXVw1MxRI45unRqt8CHlmPgAecV8kPYPl"/>
+<div class="flex flex-1 flex-col justify-center gap-0.5">
+<p class="text-base font-semibold text-gray-900 dark:text-gray-50">Dr. Olivia Chen</p>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Orthodontist</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Expert in modern orthodontic treatments for all ages.</p>
+</div>
+<div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 peer-checked:border-primary peer-checked:bg-primary">
+<span class="material-symbols-outlined text-sm text-white opacity-0 transition-opacity peer-checked:opacity-100">check</span>
+</div>
+</div>
+</label>
+</div>
+</main>
+<!-- Sticky Bottom Button -->
+<div class="fixed bottom-0 left-0 right-0 z-10 w-full bg-gradient-to-t from-background-light to-transparent dark:from-background-dark p-4 pt-8">
+<button class="flex w-full min-w-[84px] max-w-lg mx-auto cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-primary text-white text-base font-bold shadow-lg shadow-primary/30 transition-all active:scale-95">
+<span class="truncate">View Availability</span>
+</button>
+</div>
+</div>
+</body></html>

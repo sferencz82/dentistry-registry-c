@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dentistry Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4A90E2", // Soothing professional blue from user request
+              "background-light": "#F2F2F7", // Light grey from user request
+              "background-dark": "#111a21",
+              "text-light": "#333333", // Dark charcoal from user request
+              "text-dark": "#f0f3f4",
+              "text-secondary-light": "#666666",
+              "text-secondary-dark": "#a0a0a0",
+              "accent": "#FFBF00", // Soft yellow/gold for stars
+              "card-light": "#ffffff",
+              "card-dark": "#1e293b",
+              "border-light": "#e5e7eb",
+              "border-dark": "#374151"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex items-center justify-between bg-card-light/80 dark:bg-card-dark/80 backdrop-blur-sm p-4 border-b border-border-light dark:border-border-dark">
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-transparent text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold">SmileBright Dentistry</h1>
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-transparent text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined text-2xl">favorite_border</span>
+</button>
+</header>
+<main class="flex-1 pb-28">
+<!-- Header Image -->
+<div class="@container">
+<div class="@[480px]:px-4 @[480px]:py-3">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-white @[480px]:rounded-lg min-h-60" data-alt="Bright and modern interior of a dental clinic waiting room" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVlDF5lVcDh2ZYytKutyT9p7Q8V_oHdHqJsW6JqteNnFiwIZshToH4mYyVaKGaez4LUbMPi36dnnMwas1oN6kucVbZsa74OLDKcIaJfyeWUPFEH0ZBtk42sv3OueLjq37ACImhcEkniy68hIZM4pu3y0NpTJq52i6S1868ibUXZ6kX-9QLqXWw3VyMWADBubf4gDbRxMf673CWMOosDmOPNIX1mi0eI_38HHdLcyepOIsgoHKcK84n5rVL1X5utbLK43aO2j99Z-2e");'></div>
+</div>
+</div>
+<!-- Headline and Rating -->
+<div class="px-4 bg-card-light dark:bg-card-dark @[480px]:rounded-b-lg pt-2 pb-4">
+<h1 class="text-text-light dark:text-text-dark tracking-tight text-[28px] font-bold leading-tight text-left">SmileBright Dentistry</h1>
+<div class="flex items-center gap-4 min-h-14 justify-between">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center shrink-0 size-10">
+<span class="material-symbols-outlined text-accent text-2xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal flex-1 truncate">4.8/5 stars (245 reviews)</p>
+</div>
+<a class="text-primary text-base font-medium leading-normal" href="#">View all</a>
+</div>
+</div>
+<!-- Actions Bar -->
+<div class="mt-4 @container">
+<div class="gap-3 px-4 grid-cols-[repeat(auto-fit,minmax(80px,1fr))] grid">
+<div class="flex flex-col items-center gap-2 bg-card-light dark:bg-card-dark py-3 text-center rounded-lg">
+<div class="rounded-full bg-primary/20 p-3">
+<span class="material-symbols-outlined text-primary text-2xl">call</span>
+</div>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Call</p>
+</div>
+<div class="flex flex-col items-center gap-2 bg-card-light dark:bg-card-dark py-3 text-center rounded-lg">
+<div class="rounded-full bg-primary/20 p-3">
+<span class="material-symbols-outlined text-primary text-2xl">directions</span>
+</div>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Directions</p>
+</div>
+<div class="flex flex-col items-center gap-2 bg-card-light dark:bg-card-dark py-3 text-center rounded-lg">
+<div class="rounded-full bg-primary/20 p-3">
+<span class="material-symbols-outlined text-primary text-2xl">language</span>
+</div>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Website</p>
+</div>
+</div>
+</div>
+<!-- Location & Hours Section -->
+<div class="px-4 mt-6">
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg">
+<div class="flex items-start gap-4 mb-4">
+<span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark mt-1">location_on</span>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">123 Dental Ave, Smiletown, ST 45678</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Located in the City Center Plaza</p>
+</div>
+</div>
+<div class="h-40 w-full rounded-md bg-gray-200" data-alt="Map showing the location of SmileBright Dentistry in Smiletown." data-location="Smiletown" style="https://lh3.googleusercontent.com/aida-public/AB6AXuB6IM4mQZN7vde5g-r7GVFE7pus5l_n08AD73n50s3J-M0DAAMS6p-Xtz-2aPQt2T4Nlno3mF0d0IThCPHmds5rn6fZxoKjHRpbiuY7fIRnTFLReEyh9nuuE6a-CfcrZrD5Qh2BC0Ah8hV4qjrvwjyoO7nDt40iLzZJuHv35eqemUK2HyHdsrkIwtKdoRKvemCbbNEplqbohvaLiKv3J583FK9dQju6qdcyvb-LiADHDoKI5U2dTYE-ngxfY26PxvuiAbX2zLkuvP76">
+<img alt="Map view of a city location." class="h-full w-full object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlY6wF0iW1VE6qTROXtc2y2rKdPCxpzq-VEhQ5kTvm8ji-1YupJ6ydhlcvfLbbvmZw4u_fB_lIcwWbHUBef53sCuLBJIzhIfXMz4jHl_j_cLmcaustWV3Z_DdJ_lDhHLnyBROhRmhEnoLGDoGybvp-N77HUOKPAJmmyD1pALBtAGJ3MSkZZ2NJB22WWTqHYRYuk-wFenQC0F4T-58ng-vYE-h7AKoZOvm17Xw31Pj_rhQm1KWCNOPNivNY0UYZ1gOd-Hqi2c-Y_wuB"/>
+</div>
+<div class="flex items-start gap-4 mt-4">
+<span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark mt-1">schedule</span>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">Open today <span class="text-primary">9:00 AM - 5:00 PM</span></p>
+<a class="text-sm text-primary" href="#">View all hours</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Services Section -->
+<div class="px-4 mt-6">
+<h2 class="text-xl font-bold mb-3 text-text-light dark:text-text-dark">Services</h2>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-4 bg-card-light dark:bg-card-dark rounded-lg">
+<p class="text-text-light dark:text-text-dark">Routine Cleaning</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">45 min</p>
+</div>
+<div class="flex items-center justify-between p-4 bg-card-light dark:bg-card-dark rounded-lg">
+<p class="text-text-light dark:text-text-dark">Teeth Whitening</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">60 min</p>
+</div>
+<div class="flex items-center justify-between p-4 bg-card-light dark:bg-card-dark rounded-lg">
+<p class="text-text-light dark:text-text-dark">Root Canal Therapy</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">90 min</p>
+</div>
+<div class="flex items-center justify-between p-4 bg-card-light dark:bg-card-dark rounded-lg">
+<p class="text-text-light dark:text-text-dark">Dental Implants</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">120 min</p>
+</div>
+</div>
+</div>
+<!-- Our Team Section -->
+<div class="mt-6">
+<h2 class="text-xl font-bold mb-3 px-4 text-text-light dark:text-text-dark">Our Team</h2>
+<div class="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory">
+<div class="flex w-64 shrink-0 snap-center flex-col items-start gap-3 rounded-lg bg-card-light dark:bg-card-dark p-4">
+<img class="aspect-square w-full rounded-md object-cover" data-alt="Professional headshot of Dr. Evelyn Reed, a female dentist smiling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGCH7oLQySNJcesk6VV_1_TW47ljXNhsQ0_rcbFRV69fP7EBhsz-6lOTfY4KwONnpS3A4i31RyZMjNNfZTowSnSRVu0oNff5MjEUQDQqPra6O93K1QUn__WzFEyOoj9V5ZFrr2jeOVGnQ8ZaKwPZ0TAdLHj9w2NTHN9NINrL_VK2Y61HWXv4ZirdJhPxFeXRrD1jL7AklrHADIGWG8bETodfBSTKFutGnNDIKtlalXtp_32H7L4X-0lTh_X4lz0rngRJxPQjuqVWPe"/>
+<div class="flex flex-col items-start">
+<p class="font-semibold text-text-light dark:text-text-dark">Dr. Evelyn Reed</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">General Dentist</p>
+</div>
+<button class="w-full rounded-md bg-primary/20 px-4 py-2 text-sm font-semibold text-primary">View Availability</button>
+</div>
+<div class="flex w-64 shrink-0 snap-center flex-col items-start gap-3 rounded-lg bg-card-light dark:bg-card-dark p-4">
+<img class="aspect-square w-full rounded-md object-cover" data-alt="Professional headshot of Dr. Ben Carter, a male dentist smiling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHWtlHysQuuPuzbKKeG6oGDDxHGUe_YZEzZt4KTVRRZyMNocux7deSkhPcym9Q-x05OBzBQjiCTiAkGXUM5lOwN0quJOTozz_Py3g5YF2TxFsIGIGbc0VseXDUVQ30AYba4GP9GyCArWsxhm-sW3xw1kzIL5wafE56tq2vTnxLCnklYABYylqktNexvUOXviTul5EDAAyByAkaSWS5NX6pQeyVZ2hOqTZIntusxNJeGI91kATTOuWqIu92BXZ4RtTuouAJWKUpLreL"/>
+<div class="flex flex-col items-start">
+<p class="font-semibold text-text-light dark:text-text-dark">Dr. Ben Carter</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Orthodontist</p>
+</div>
+<button class="w-full rounded-md bg-primary/20 px-4 py-2 text-sm font-semibold text-primary">View Availability</button>
+</div>
+<div class="flex w-64 shrink-0 snap-center flex-col items-start gap-3 rounded-lg bg-card-light dark:bg-card-dark p-4">
+<img class="aspect-square w-full rounded-md object-cover" data-alt="Professional headshot of Maria Rodriguez, a female dental hygienist smiling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-A6pvbVUXVHGnKKpKN5o3j40DcphH1ro4vMpF0C8Xur-453yBY51zO3Mlpf7dEtp245CInVJ6s2bD2zKZorGTIsvx27xYpvvjTiOW84bALkTDCOYaVyU5MZvY5KdeE-Z78n1IM2kQn7NqUpeorl_j3K3cmP-ctXSPzzjSrJCTsr7dV5FjLzsnhC4cRvFLmEd9izOhXVxaS3zPWzlDTcaBvMvmoQjsyO9UPmk8zWRhzph2rT7FqnH0aBdTZHbXmFXSBKo40K_fIntX"/>
+<div class="flex flex-col items-start">
+<p class="font-semibold text-text-light dark:text-text-dark">Maria Rodriguez</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Dental Hygienist</p>
+</div>
+<button class="w-full rounded-md bg-primary/20 px-4 py-2 text-sm font-semibold text-primary">View Availability</button>
+</div>
+</div>
+</div>
+<!-- Patient Reviews Section -->
+<div class="px-4 mt-6">
+<h2 class="text-xl font-bold mb-3 text-text-light dark:text-text-dark">Patient Reviews</h2>
+<div class="space-y-3">
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg">
+<div class="flex items-center justify-between mb-2">
+<p class="font-semibold text-text-light dark:text-text-dark">Jessica L.</p>
+<div class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">"Absolutely the best dental care I've ever received. The staff is incredibly friendly and professional."</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg">
+<div class="flex items-center justify-between mb-2">
+<p class="font-semibold text-text-light dark:text-text-dark">Mark P.</p>
+<div class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">"Dr. Reed is fantastic. She explained everything clearly and made me feel at ease during the whole procedure."</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky CTA Button -->
+<footer class="fixed bottom-0 left-0 right-0 z-10 bg-card-light/80 dark:bg-card-dark/80 backdrop-blur-sm p-4 border-t border-border-light dark:border-border-dark">
+<button class="w-full rounded-lg bg-primary py-3.5 text-base font-bold text-white shadow-lg shadow-primary/30">Book Appointment</button>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Knowledge Base Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1990e6",
+              "background-light": "#f6f7f8",
+              "background-dark": "#111a21",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-slate-800 dark:text-slate-200 flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Knowledge Base</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-3xl">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-3 bg-background-light dark:bg-background-dark sticky top-[72px] z-10">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-500 dark:text-slate-400 flex border-none bg-white dark:bg-background-dark dark:border dark:border-slate-700 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-white dark:bg-background-dark dark:border dark:border-slate-700 h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search questions or keywords..." value=""/>
+</div>
+</label>
+</div>
+<!-- Chips / Filters -->
+<div class="flex gap-3 px-4 py-3 overflow-x-auto bg-background-light dark:bg-background-dark [::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-4 cursor-pointer">
+<p class="text-white text-sm font-medium leading-normal">All</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 pl-4 pr-4 cursor-pointer">
+<p class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal">Billing</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 pl-4 pr-4 cursor-pointer">
+<p class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal">Appointments</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 pl-4 pr-4 cursor-pointer">
+<p class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal">Services</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 pl-4 pr-4 cursor-pointer">
+<p class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal">Insurance</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 pl-4 pr-4 cursor-pointer">
+<p class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal">Post-Op</p>
+</div>
+</div>
+<div class="flex-grow px-4 space-y-3 pb-6 pt-2">
+<!-- List Item 1 -->
+<div class="flex gap-4 bg-white dark:bg-slate-800 p-4 justify-between rounded-xl shadow-sm">
+<div class="flex flex-1 flex-col justify-center gap-2">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-normal">What insurance plans do you accept?</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">We accept a wide range of insurance plans to make dental care accessible. We are in-network with providers such as Delta Dental, MetLife, Cigna, Aetna, and many more. Please call our office for specific plan details.</p>
+<div class="mt-1">
+<span class="inline-block bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">Insurance</span>
+</div>
+</div>
+<div class="shrink-0 flex flex-col justify-start items-center gap-2">
+<div class="text-slate-600 dark:text-slate-400 flex size-8 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+<span class="material-symbols-outlined text-xl">edit</span>
+</div>
+<div class="text-red-500 dark:text-red-400 flex size-8 items-center justify-center rounded-full hover:bg-red-50 dark:hover:bg-red-900/50 cursor-pointer">
+<span class="material-symbols-outlined text-xl">delete</span>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex gap-4 bg-white dark:bg-slate-800 p-4 justify-between rounded-xl shadow-sm">
+<div class="flex flex-1 flex-col justify-center gap-2">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-normal">How do I reschedule an appointment?</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">You can easily reschedule your appointment directly through our mobile app. Navigate to the 'My Appointments' section, select the appointment you wish to change, and follow the prompts to find a new time.</p>
+<div class="mt-1">
+<span class="inline-block bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">Appointments</span>
+</div>
+</div>
+<div class="shrink-0 flex flex-col justify-start items-center gap-2">
+<div class="text-slate-600 dark:text-slate-400 flex size-8 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+<span class="material-symbols-outlined text-xl">edit</span>
+</div>
+<div class="text-red-500 dark:text-red-400 flex size-8 items-center justify-center rounded-full hover:bg-red-50 dark:hover:bg-red-900/50 cursor-pointer">
+<span class="material-symbols-outlined text-xl">delete</span>
+</div>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex gap-4 bg-white dark:bg-slate-800 p-4 justify-between rounded-xl shadow-sm">
+<div class="flex flex-1 flex-col justify-center gap-2">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-normal">What are your office hours?</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">Our office is open Monday to Friday from 8:00 AM to 5:00 PM. We are closed on weekends and public holidays. For dental emergencies outside of these hours, please call our emergency line.</p>
+<div class="mt-1">
+<span class="inline-block bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">General</span>
+</div>
+</div>
+<div class="shrink-0 flex flex-col justify-start items-center gap-2">
+<div class="text-slate-600 dark:text-slate-400 flex size-8 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+<span class="material-symbols-outlined text-xl">edit</span>
+</div>
+<div class="text-red-500 dark:text-red-400 flex size-8 items-center justify-center rounded-full hover:bg-red-50 dark:hover:bg-red-900/50 cursor-pointer">
+<span class="material-symbols-outlined text-xl">delete</span>
+</div>
+</div>
+</div>
+<!-- List Item 4 -->
+<div class="flex gap-4 bg-white dark:bg-slate-800 p-4 justify-between rounded-xl shadow-sm">
+<div class="flex flex-1 flex-col justify-center gap-2">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-normal">Do you offer payment plans?</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">Yes, we offer flexible payment plans through third-party financing partners like CareCredit. This allows you to break down the cost of your treatment into manageable monthly payments. Please ask our front desk for more information.</p>
+<div class="mt-1">
+<span class="inline-block bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">Billing</span>
+</div>
+</div>
+<div class="shrink-0 flex flex-col justify-start items-center gap-2">
+<div class="text-slate-600 dark:text-slate-400 flex size-8 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+<span class="material-symbols-outlined text-xl">edit</span>
+</div>
+<div class="text-red-500 dark:text-red-400 flex size-8 items-center justify-center rounded-full hover:bg-red-50 dark:hover:bg-red-900/50 cursor-pointer">
+<span class="material-symbols-outlined text-xl">delete</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

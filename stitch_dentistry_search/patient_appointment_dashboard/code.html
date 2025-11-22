@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Appointments Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1990e6",
+              "background-light": "#f6f7f8",
+              "background-dark": "#111a21",
+              "green-status": "#28a745",
+              "orange-status": "#ffc107",
+              "red-status": "#dc3545",
+              "text-light": "#111518",
+              "text-dark": "#f0f3f4",
+              "subtext-light": "#637888",
+              "subtext-dark": "#a0aec0",
+              "border-light": "#e2e8f0",
+              "border-dark": "#2d3748",
+              "card-light": "#ffffff",
+              "card-dark": "#1a2732"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex items-center justify-between border-b border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark px-4 py-3">
+<h1 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight tracking-tight">Appointments</h1>
+<button class="flex size-10 items-center justify-center rounded-full text-text-light dark:text-text-dark hover:bg-background-light dark:hover:bg-background-dark">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</header>
+<main class="flex-1 pb-24">
+<!-- Date Selector -->
+<div class="flex items-center justify-between px-4 pt-6 pb-3">
+<button class="flex size-8 items-center justify-center rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-primary/10">
+<span class="material-symbols-outlined text-2xl">chevron_left</span>
+</button>
+<h2 class="text-text-light dark:text-text-dark text-2xl font-bold leading-tight tracking-tight text-center">Today, October 26</h2>
+<button class="flex size-8 items-center justify-center rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-primary/10">
+<span class="material-symbols-outlined text-2xl">chevron_right</span>
+</button>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 p-4 pt-2 overflow-x-auto whitespace-nowrap">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-3 text-white">
+<p class="text-sm font-medium leading-normal">All</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark pl-4 pr-3 text-text-light dark:text-text-dark">
+<p class="text-sm font-medium leading-normal">Dr. Evans</p>
+<span class="material-symbols-outlined text-base">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark pl-4 pr-3 text-text-light dark:text-text-dark">
+<p class="text-sm font-medium leading-normal">Confirmed</p>
+<span class="material-symbols-outlined text-base">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark pl-4 pr-3 text-text-light dark:text-text-dark">
+<p class="text-sm font-medium leading-normal">Pending</p>
+<span class="material-symbols-outlined text-base">arrow_drop_down</span>
+</button>
+</div>
+<!-- Appointment List -->
+<div class="flex flex-col gap-3 px-4">
+<!-- Appointment Card 1 - Confirmed -->
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<p class="text-text-light dark:text-text-dark text-lg font-semibold">10:30 AM</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">Jane Doe</p>
+</div>
+<div class="flex items-center gap-2 rounded-full bg-green-status/10 px-3 py-1 text-xs font-medium text-green-status">
+<div class="size-2 rounded-full bg-green-status"></div>
+                            Confirmed
+                        </div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-text-light dark:text-text-dark font-medium">Annual Cleaning &amp; X-Rays</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">with Dr. Evans</p>
+</div>
+<div class="mt-2 flex gap-2">
+<button class="flex flex-1 items-center justify-center gap-2 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark py-2 text-sm font-semibold text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined text-base">call</span>
+                            Call
+                        </button>
+<button class="flex flex-1 items-center justify-center gap-2 rounded-lg border border-primary bg-primary/10 py-2 text-sm font-semibold text-primary">
+<span class="material-symbols-outlined text-base">visibility</span>
+                            View
+                        </button>
+</div>
+</div>
+<!-- Appointment Card 2 - Pending -->
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<p class="text-text-light dark:text-text-dark text-lg font-semibold">11:00 AM</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">John Smith</p>
+</div>
+<div class="flex items-center gap-2 rounded-full bg-orange-status/10 px-3 py-1 text-xs font-medium text-orange-status">
+<div class="size-2 rounded-full bg-orange-status"></div>
+                            Pending
+                        </div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-text-light dark:text-text-dark font-medium">Routine Check-up</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">with Dr. Allen</p>
+</div>
+<div class="mt-2 flex gap-2">
+<button class="flex flex-1 items-center justify-center gap-2 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark py-2 text-sm font-semibold text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined text-base">call</span>
+                            Call
+                        </button>
+<button class="flex flex-1 items-center justify-center gap-2 rounded-lg border border-primary bg-primary/10 py-2 text-sm font-semibold text-primary">
+<span class="material-symbols-outlined text-base">visibility</span>
+                            View
+                        </button>
+</div>
+</div>
+<!-- Appointment Card 3 - Cancelled -->
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4 opacity-60">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<p class="text-text-light dark:text-text-dark text-lg font-semibold line-through">01:00 PM</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm line-through">Emily White</p>
+</div>
+<div class="flex items-center gap-2 rounded-full bg-red-status/10 px-3 py-1 text-xs font-medium text-red-status">
+<div class="size-2 rounded-full bg-red-status"></div>
+                            Cancelled
+                        </div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-text-light dark:text-text-dark font-medium line-through">Wisdom Tooth Consultation</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm line-through">with Dr. Evans</p>
+</div>
+<div class="mt-2 flex gap-2">
+<button class="flex flex-1 cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark py-2 text-sm font-semibold text-subtext-light dark:text-subtext-dark" disabled="">
+<span class="material-symbols-outlined text-base">call</span>
+                            Call
+                        </button>
+<button class="flex flex-1 cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark py-2 text-sm font-semibold text-subtext-light dark:text-subtext-dark" disabled="">
+<span class="material-symbols-outlined text-base">visibility</span>
+                            View
+                        </button>
+</div>
+</div>
+<!-- Empty State Example (can be uncommented) -->
+<!-- 
+                <div class="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-12 text-center mt-8">
+                    <span class="material-symbols-outlined text-6xl text-subtext-light dark:text-subtext-dark">event_note</span>
+                    <h3 class="mt-4 text-lg font-semibold text-text-light dark:text-text-dark">No Appointments Today</h3>
+                    <p class="mt-1 text-sm text-subtext-light dark:text-subtext-dark">The schedule is clear for the day. Enjoy the quiet time!</p>
+                </div>
+                -->
+</div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-6 right-6">
+<button class="flex size-14 items-center justify-center rounded-full bg-primary text-white shadow-lg">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+</div>
+</body></html>

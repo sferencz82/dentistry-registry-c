@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage Availability</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1990e6",
+              "background-light": "#f6f7f8",
+              "background-dark": "#111a21",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden text-slate-800 dark:text-slate-200">
+<!-- Top App Bar -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-200 dark:border-slate-700">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl text-slate-800 dark:text-slate-200">menu</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center text-slate-900 dark:text-slate-50">Manage Availability</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-slate-800 dark:text-slate-200 gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+</div>
+</div>
+<!-- Segmented Buttons -->
+<div class="flex px-4 py-3 bg-white dark:bg-background-dark">
+<div class="flex h-10 flex-1 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-white has-[:checked]:dark:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-slate-900 has-[:checked]:dark:text-slate-50 text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">
+<span class="truncate">Month</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="Month"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-white has-[:checked]:dark:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-slate-900 has-[:checked]:dark:text-slate-50 text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">
+<span class="truncate">Week</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="Week"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-white has-[:checked]:dark:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-slate-900 has-[:checked]:dark:text-slate-50 text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">
+<span class="truncate">Day</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="Day"/>
+</label>
+</div>
+</div>
+<!-- Calendar Picker -->
+<div class="flex flex-wrap items-center justify-center gap-6 p-4 pt-2 bg-white dark:bg-background-dark">
+<div class="flex min-w-72 max-w-[336px] flex-1 flex-col gap-0.5">
+<div class="flex items-center p-1 justify-between">
+<button class="flex size-10 items-center justify-center text-slate-800 dark:text-slate-200">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<p class="text-base font-bold leading-tight flex-1 text-center text-slate-900 dark:text-slate-50">October 2024</p>
+<button class="flex size-10 items-center justify-center text-slate-800 dark:text-slate-200">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7">
+<p class="text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">S</p>
+<p class="text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">M</p>
+<p class="text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">T</p>
+<p class="text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">W</p>
+<p class="text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">T</p>
+<p class="text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">F</p>
+<p class="text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">S</p>
+<button class="h-12 w-full text-slate-400 dark:text-slate-500 col-start-4 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full">1</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>2</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>3</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>4</div></button>
+<button class="h-12 w-full text-white text-sm font-medium leading-normal">
+<div class="flex size-full items-center justify-center rounded-full bg-primary relative">
+<div class="absolute bottom-2 h-1 w-1 rounded-full bg-white/70"></div>5
+                    </div>
+</button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-orange-500"></div>6</div></button>
+<button class="h-12 w-full text-slate-400 dark:text-slate-500 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full">7</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>8</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>9</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>10</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>11</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>12</div></button>
+<button class="h-12 w-full text-slate-400 dark:text-slate-500 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full">13</div></button>
+<button class="h-12 w-full text-slate-400 dark:text-slate-500 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full">14</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>15</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>16</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>17</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>18</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>19</div></button>
+<button class="h-12 w-full text-slate-400 dark:text-slate-500 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full">20</div></button>
+<button class="h-12 w-full text-slate-400 dark:text-slate-500 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full">21</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>22</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>23</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>24</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>25</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>26</div></button>
+<button class="h-12 w-full text-slate-400 dark:text-slate-500 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full">27</div></button>
+<button class="h-12 w-full text-slate-400 dark:text-slate-500 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full">28</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>29</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-green-500"></div>30</div></button>
+<button class="h-12 w-full text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal"><div class="flex size-full items-center justify-center rounded-full relative"><div class="absolute bottom-2 h-1 w-1 rounded-full bg-orange-500"></div>31</div></button>
+</div>
+</div>
+</div>
+<div class="px-4 py-3 bg-background-light dark:bg-background-dark">
+<h3 class="font-bold text-lg text-slate-900 dark:text-slate-50">Saturday, October 5</h3>
+</div>
+<!-- List Items for selected day -->
+<div class="flex flex-col gap-2 px-4 bg-background-light dark:bg-background-dark flex-grow pb-24">
+<!-- Working Hours Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 min-h-14 justify-between rounded-lg">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-lg bg-green-500/20 text-green-600 dark:text-green-400 shrink-0 size-10">
+<span class="material-symbols-outlined text-2xl">schedule</span>
+</div>
+<div class="flex flex-col">
+<p class="text-base font-medium leading-normal text-slate-900 dark:text-slate-50">Working Hours</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">9:00 AM - 5:00 PM</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="text-base font-medium leading-normal text-primary">Edit</button>
+</div>
+</div>
+<!-- Blocked Time Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 min-h-14 justify-between rounded-lg">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-lg bg-orange-500/20 text-orange-600 dark:text-orange-400 shrink-0 size-10">
+<span class="material-symbols-outlined text-2xl">block</span>
+</div>
+<div class="flex flex-col">
+<p class="text-base font-medium leading-normal text-slate-900 dark:text-slate-50">Blocked: Lunch</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">12:00 PM - 1:00 PM</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="text-base font-medium leading-normal text-primary">Edit</button>
+</div>
+</div>
+</div>
+<!-- Floating Action Button -->
+<div class="fixed bottom-6 right-6 z-20">
+<button class="flex items-center justify-center size-14 bg-primary text-white rounded-full shadow-lg">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+</div>
+</body></html>
