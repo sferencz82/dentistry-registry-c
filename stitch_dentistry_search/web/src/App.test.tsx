@@ -1,8 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders environment info', () => {
-  render(<App />);
-  expect(screen.getByText(/Stitch Dentistry Web/i)).toBeInTheDocument();
-  expect(screen.getByText(/Environment:/i)).toBeInTheDocument();
+describe('App shell', () => {
+  test('renders core sections for dentistry search and booking', () => {
+    render(<App />);
+
+    expect(screen.getByText(/Stitch Dentistry Finder/)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Dentistry search/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Dentistry detail/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Provider selection/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Nearest availability/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Booking confirmation/i })).toBeInTheDocument();
+  });
 });
