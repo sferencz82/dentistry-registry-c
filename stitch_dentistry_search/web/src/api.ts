@@ -86,6 +86,28 @@ export type BillingStatus = {
   paymentMethod?: string;
 };
 
+export type ChatMessage = {
+  id?: string;
+  author: 'assistant' | 'user' | 'system';
+  text: string;
+  type?: 'assistant' | 'status' | 'confirmation';
+};
+
+export type ChatRequest = {
+  sessionId: string;
+  text?: string;
+  quickReply?: string;
+};
+
+export type ChatResponse = {
+  messages: ChatMessage[];
+  bookingUpdate?: {
+    status?: 'pending' | 'confirmed' | 'failed';
+    details: string;
+    confirmationNumber?: string;
+  };
+};
+
 const toJson = async <T>(response: Response): Promise<T> => {
   if (!response.ok) {
     const errorText = await response.text();
@@ -165,7 +187,14 @@ export const createApiClient = (baseUrl: string) => {
         ...init
       }),
     getBillingStatus: (practiceId: string, init?: RequestInit) =>
-      request<BillingStatus>(`/practices/${practiceId}/billing`, init)
+      request<BillingStatus>(`/practices/${practiceId}/billing`, init),
+    sendChatMessage: (payload: ChatRequest, init?: RequestInit) =>
+      request<ChatResponse>(`/chat/messages`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        ...init
+      })
   };
 };
 

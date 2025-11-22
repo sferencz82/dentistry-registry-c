@@ -8,6 +8,7 @@ import {
   StaffMember,
   createApiClient
 } from './api';
+import { ChatSupport } from './ChatSupport';
 
 const formatSlot = (slot: AvailabilitySlot) =>
   new Intl.DateTimeFormat('en-US', {
@@ -242,6 +243,8 @@ export const App = () => {
         <p>Environment: {env.environment}</p>
         <p>API URL: {env.apiUrl}</p>
       </header>
+
+      <ChatSupport api={api} />
 
       <section aria-label="practice profile" style={{ marginBottom: '1.5rem' }}>
         <h2>Profile</h2>
