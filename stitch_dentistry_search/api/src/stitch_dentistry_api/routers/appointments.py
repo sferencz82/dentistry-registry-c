@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 from datetime import date, datetime, timedelta, timezone
+from urllib.parse import quote_plus
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 
 from ..db import get_session
@@ -13,12 +14,15 @@ from ..models import (
     BookingConfirmation,
     BookingCreate,
     BookingRead,
+    ContactDetails,
+    DeliveryPreference,
     Dentistry,
     Patient,
     PatientCreate,
     Service,
     Staff,
 )
+from ..notifications import NotificationDispatcher
 
 
 router = APIRouter(prefix="/appointments", tags=["appointments"])
@@ -70,6 +74,31 @@ def _get_patient(session: Session, patient_id: int | None, patient_payload: Pati
     return patient
 
 
+def _resolve_contact_details(patient: Patient, contact_details: ContactDetails | None) -> ContactDetails:
+    details = contact_details or ContactDetails()
+    details.email = details.email or patient.email
+    details.phone = details.phone or patient.phone
+    return details
+
+
+def _validate_delivery_preference(contact_details: ContactDetails, preference: DeliveryPreference) -> None:
+    if preference in {DeliveryPreference.email, DeliveryPreference.both} and not contact_details.email:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Email contact required for the selected delivery preference",
+        )
+
+    if preference in {DeliveryPreference.sms, DeliveryPreference.both} and not contact_details.phone:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Phone number required for the selected delivery preference",
+        )
+
+
+def _build_map_link(address: str) -> str:
+    return f"https://www.google.com/maps/search/?api=1&query={quote_plus(address)}"
+
+
 @router.post("/", response_model=BookingConfirmation)
 def book_appointment(payload: BookingCreate, session: Session = Depends(get_session)):
     dentistry = session.get(Dentistry, payload.dentistry_id)
@@ -92,6 +121,9 @@ def book_appointment(payload: BookingCreate, session: Session = Depends(get_sess
 
     patient = _get_patient(session, payload.patient_id, payload.patient)
 
+    contact_details = _resolve_contact_details(patient, payload.contact_details)
+    _validate_delivery_preference(contact_details, payload.delivery_preference)
+
     booking = Booking(
         dentistry_id=dentistry.id,
         service_id=service.id,
@@ -109,12 +141,36 @@ def book_appointment(payload: BookingCreate, session: Session = Depends(get_sess
     session.refresh(booking)
 
     booking_read = BookingRead.model_validate(booking)
+    access_instructions = (
+        dentistry.description or "Please arrive 10 minutes early and check in at the reception desk."
+    )
+    map_link = _build_map_link(dentistry.address)
+    patient_message = (
+        f"Booked {service.name} with {staff_member.name} at {booking.appointment_start.isoformat()} "
+        f"at {dentistry.name}. Location: {dentistry.address}. Map: {map_link}. Access: {access_instructions}. "
+        f"Estimated price: ${service.price:.2f}."
+    )
+    dentistry_message = (
+        f"New appointment for {patient.full_name} ({contact_details.email}, {contact_details.phone}) "
+        f"for {service.name} at {booking.appointment_start.isoformat()} with {staff_member.name}."
+    )
+
+    dispatcher = NotificationDispatcher()
+    dispatcher.notify_patient(
+        contact=contact_details,
+        preference=payload.delivery_preference,
+        subject="Appointment confirmation",
+        message=patient_message,
+    )
+    dispatcher.notify_dentistry(dentistry.email, dentistry.phone, dentistry_message)
+
     return BookingConfirmation(
         booking=booking_read,
-        patient_message=(
-            f"Booked {service.name} with {staff_member.name} at {booking.appointment_start.isoformat()}"
-        ),
-        dentistry_message=(
-            f"New appointment for {patient.full_name} for {service.name} at {booking.appointment_start.isoformat()}"
-        ),
+        patient_message=patient_message,
+        dentistry_message=dentistry_message,
+        patient_contact=contact_details,
+        location=dentistry.address,
+        map_link=map_link,
+        access_instructions=access_instructions,
+        price_estimate=service.price,
     )
