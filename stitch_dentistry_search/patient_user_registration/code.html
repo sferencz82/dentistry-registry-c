@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Account - DentalCare</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2badee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111618] dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden p-4">
+<div class="w-full max-w-md mx-auto">
+<!-- App Logo -->
+<div class="flex justify-center items-center mb-6">
+<svg class="h-10 w-auto text-primary" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C16.97 2 21 6.03 21 11C21 15.05 18.22 18.42 14.71 19.53C14.28 19.61 14 19.28 14 18.87V16.88C14 16.59 13.82 16.33 13.54 16.27C11.53 15.82 10 14.07 10 12C10 9.79 11.79 8 14 8C14.53 8 15.04 8.1 15.5 8.28C15.77 8.38 16.08 8.18 16.14 7.9C16.21 7.6 16.01 7.3 15.73 7.22C14.88 6.96 13.97 6.8 13 6.8C9.69 6.8 7 9.49 7 12.8C7 16.11 9.69 18.8 13 18.8C13.28 18.8 13.55 18.79 13.82 18.75L13.14 20.93C12.78 21.08 12.4 21.16 12 21.16C7.5 21.16 3.84 17.5 3.84 13C3.84 8.5 7.5 4.84 12 4.84C14.73 4.84 17.15 6.05 18.84 8.16L18.84 3.5C18.84 3.22 19.06 3 19.34 3H21.16C21.62 3 22 3.38 22 3.84V11C22 16.52 17.52 21 12 21C6.48 21 2 16.52 2 11S6.48 2 12 2Z"></path>
+</svg>
+</div>
+<!-- Header Text -->
+<h1 class="text-[#111618] dark:text-white tracking-light text-[32px] font-bold leading-tight text-center pb-2">Create Your Account</h1>
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal pb-8 text-center">Let's get you started with a healthier smile.</p>
+<!-- Registration Form -->
+<form action="#" class="space-y-4" method="POST">
+<!-- Full Name Field -->
+<div>
+<label class="flex flex-col w-full">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Full Name</p>
+<div class="relative flex w-full items-center">
+<div class="absolute left-0 pl-4 text-gray-400 dark:text-gray-500 pointer-events-none">
+<span class="material-symbols-outlined">person</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-white dark:placeholder:text-gray-500 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-background-dark/50 h-14 placeholder:text-gray-500 p-2 pl-12 text-base font-normal leading-normal" placeholder="Jane Doe" type="text" value=""/>
+</div>
+</label>
+</div>
+<!-- Email Address Field -->
+<div>
+<label class="flex flex-col w-full">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Email Address</p>
+<div class="relative flex w-full items-center">
+<div class="absolute left-0 pl-4 text-gray-400 dark:text-gray-500 pointer-events-none">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-white dark:placeholder:text-gray-500 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-background-dark/50 h-14 placeholder:text-gray-500 p-2 pl-12 text-base font-normal leading-normal" placeholder="jane.doe@email.com" type="email" value=""/>
+</div>
+</label>
+</div>
+<!-- Phone Number Field -->
+<div>
+<label class="flex flex-col w-full">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Phone Number <span class="text-gray-500 dark:text-gray-400 text-sm">(Optional)</span></p>
+<div class="relative flex w-full items-center">
+<div class="absolute left-0 pl-4 text-gray-400 dark:text-gray-500 pointer-events-none">
+<span class="material-symbols-outlined">phone</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-white dark:placeholder:text-gray-500 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-background-dark/50 h-14 placeholder:text-gray-500 p-2 pl-12 text-base font-normal leading-normal" placeholder="(123) 456-7890" type="tel" value=""/>
+</div>
+</label>
+</div>
+<!-- Password Field -->
+<div>
+<label class="flex flex-col w-full">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Password</p>
+<div class="relative flex w-full flex-1 items-center">
+<div class="absolute left-0 pl-4 text-gray-400 dark:text-gray-500 pointer-events-none">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-white dark:placeholder:text-gray-500 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-background-dark/50 h-14 placeholder:text-gray-500 p-2 pl-12 pr-12 text-base font-normal leading-normal" placeholder="Minimum 8 characters" type="password" value=""/>
+<button class="absolute right-0 flex items-center pr-4 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</label>
+</div>
+<!-- Confirm Password Field -->
+<div>
+<label class="flex flex-col w-full">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Confirm Password</p>
+<div class="relative flex w-full flex-1 items-center">
+<div class="absolute left-0 pl-4 text-gray-400 dark:text-gray-500 pointer-events-none">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-white dark:placeholder:text-gray-500 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-background-dark/50 h-14 placeholder:text-gray-500 p-2 pl-12 text-base font-normal leading-normal" placeholder="Re-enter your password" type="password" value=""/>
+</div>
+<p class="text-red-600 dark:text-red-500 text-sm mt-1.5 hidden">Passwords do not match.</p>
+</label>
+</div>
+<!-- Legal Text -->
+<div class="pt-2">
+<p class="text-gray-500 dark:text-gray-400 text-xs text-center leading-relaxed">
+                        By creating an account, you agree to our
+                        <a class="font-medium text-primary hover:underline" href="#">Terms of Service</a> and 
+                        <a class="font-medium text-primary hover:underline" href="#">Privacy Policy</a>.
+                    </p>
+</div>
+<!-- Create Account Button -->
+<div class="pt-4">
+<button class="flex w-full items-center justify-center rounded-lg bg-primary h-14 text-base font-bold leading-normal text-white shadow-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 dark:focus:ring-offset-background-dark transition-colors duration-200">
+                        Create Account
+                    </button>
+</div>
+</form>
+<!-- Secondary Link to Login -->
+<div class="mt-8 text-center">
+<p class="text-gray-600 dark:text-gray-400 text-base">
+                    Already have an account? 
+                    <a class="font-bold text-primary hover:underline" href="#">Log In</a>
+</p>
+</div>
+</div>
+</div>
+</body></html>

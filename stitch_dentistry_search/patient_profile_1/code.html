@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Personal Information</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2badee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .peer:checked ~ .peer-checked\:bg-primary {
+            background-color: #2badee;
+        }
+        .peer:checked ~ .peer-checked\:translate-x-full {
+            transform: translateX(100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display">
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-gray-200 dark:border-gray-700">
+<div class="text-gray-800 dark:text-gray-200 flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">Personal Information</h2>
+</div>
+<main class="flex-grow pb-28">
+<div class="bg-white dark:bg-background-dark p-4 pt-6 @container">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32" data-alt="User's profile picture, a portrait of a smiling person." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJs27cIRd0L_KYYDAD95gCZdFwXCN5v45xgynNCu4BIiQcQrt7DexdqCXU07JVdvrdh12J5yfpI63AK3PSC9_WNODpsiMFXIl3s4QApSHf5V-wbiTTq9i6QDXWFt1UoyDBpjDlQerbjRxtIQTmslTxuKGqaTdm8KBwSUzPLG19RzpMY4nvr6iNCup37UwPF7AVAGS_wegNa6szWPTqpCT0HD6GuSWOSNY-fabnzTXETAVDonJc7YI-pUTF_FuGv2mXzwlfPBcAQBpC");'></div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Alex Doe</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal text-center">alex.doe@email.com</p>
+</div>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary text-sm font-bold leading-normal tracking-[0.015em] w-full max-w-[480px] hover:bg-primary/30 transition-colors">
+<span class="truncate">Change Photo</span>
+</button>
+</div>
+</div>
+<div class="px-4 py-3 space-y-4 max-w-lg mx-auto">
+<label class="flex flex-col w-full">
+<p class="text-gray-800 dark:text-gray-200 text-base font-medium leading-normal pb-2">Full Name</p>
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+<span class="material-symbols-outlined text-gray-400">person</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 pl-11 p-3.5 text-base font-normal leading-normal" placeholder="Enter your full name" value="Alex Doe"/>
+</div>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-gray-800 dark:text-gray-200 text-base font-medium leading-normal pb-2">Date of Birth</p>
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+<span class="material-symbols-outlined text-gray-400">cake</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 pl-11 p-3.5 text-base font-normal leading-normal" placeholder="MM/DD/YYYY" value="08/15/1990"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
+<span class="material-symbols-outlined text-gray-500">calendar_month</span>
+</div>
+</div>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-gray-800 dark:text-gray-200 text-base font-medium leading-normal pb-2">Phone Number</p>
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+<span class="material-symbols-outlined text-gray-400">phone</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 pl-11 p-3.5 text-base font-normal leading-normal" placeholder="Enter your phone number" value="(123) 456-7890"/>
+</div>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-gray-800 dark:text-gray-200 text-base font-medium leading-normal pb-2">Email Address</p>
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+<span class="material-symbols-outlined text-gray-400">mail</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 pl-11 p-3.5 text-base font-normal leading-normal" placeholder="Enter your email address" type="email" value="alex.doe@email.com"/>
+</div>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-gray-800 dark:text-gray-200 text-base font-medium leading-normal pb-2">Home Address</p>
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+<span class="material-symbols-outlined text-gray-400">home</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 pl-11 p-3.5 text-base font-normal leading-normal" placeholder="Enter your home address" value="123 Dental Lane, Toothville"/>
+</div>
+</label>
+</div>
+<div class="px-4 py-3 max-w-lg mx-auto">
+<div class="flex flex-col gap-4">
+<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<p class="text-gray-900 dark:text-white text-base font-semibold leading-normal">Appointment Reminders</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Get notified about upcoming appointments.</p>
+</div>
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="h-8 w-14 rounded-full bg-gray-200 dark:bg-gray-600 after:absolute after:top-1 after:left-1 after:h-6 after:w-6 after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-primary after:peer-checked:translate-x-full"></div>
+</label>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<p class="text-gray-900 dark:text-white text-base font-semibold leading-normal">Promotional Offers</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Receive special offers and discounts.</p>
+</div>
+<label class="relative inline-flex cursor-pointer items-center">
+<input class="peer sr-only" type="checkbox"/>
+<div class="h-8 w-14 rounded-full bg-gray-200 dark:bg-gray-600 after:absolute after:top-1 after:left-1 after:h-6 after:w-6 after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-primary after:peer-checked:translate-x-full"></div>
+</label>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<p class="text-gray-900 dark:text-white text-base font-semibold leading-normal">Chat Notifications</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Get alerts for new messages from your dentist.</p>
+</div>
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="h-8 w-14 rounded-full bg-gray-200 dark:bg-gray-600 after:absolute after:top-1 after:left-1 after:h-6 after:w-6 after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-primary after:peer-checked:translate-x-full"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 py-4 text-center">
+<p class="text-xs text-gray-500 dark:text-gray-400 max-w-sm mx-auto">
+                    Your data is handled securely. For more details, please review our <a class="text-primary hover:underline" href="#">Privacy Policy</a>.
+                </p>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-white/80 dark:bg-background-dark/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
+<button class="w-full h-14 px-6 bg-primary text-white rounded-xl text-base font-bold flex items-center justify-center">
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+</body></html>

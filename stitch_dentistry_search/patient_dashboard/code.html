@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Appointments Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#00A79D",
+              "background-light": "#F0F4F8",
+              "background-dark": "#101c22",
+              "card-light": "#ffffff",
+              "card-dark": "#192730",
+              "text-primary-light": "#333333",
+              "text-primary-dark": "#F0F4F8",
+              "text-secondary-light": "#617c89",
+              "text-secondary-dark": "#94a3b8",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden text-text-primary-light dark:text-text-primary-dark">
+<!-- Top App Bar -->
+<header class="flex items-center bg-card-light dark:bg-card-dark p-4 pb-2 justify-between sticky top-0 z-10 shadow-sm">
+<div class="flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-3xl text-text-primary-light dark:text-text-primary-dark">menu</span>
+</div>
+<h1 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">My Appointments</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10">
+<img alt="User profile avatar" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFqzetsyGXmWyLOvXoULovNbi-EDsGivyGWYlXkbl6DCTCfR0UQmj3QsLfS1wBXQiF798Cea94NiYbhkMOc9F2rMSv4CyqDLL2g8BIy4VzEz7bQa-MGkgi3l2wwIhYdnzt_OLU9OVC_ji4GPaHkPsfx8rlHACp1-D_wTnAlJ6Ww_hMgmSEIED3l_REZ0wnHid3rRIl_PwpUZJ5_SIQWX9WtMJCmq2yCqjSwrQLsYxz4AWYXpVjvH0QG_DbqCoQY5fx26fhcUhsG8ll"/>
+</button>
+</div>
+</header>
+<main class="flex-1 pb-24">
+<!-- Your Next Visit Section Header -->
+<h2 class="text-text-primary-light dark:text-text-primary-dark text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-6">Your Next Visit</h2>
+<!-- Upcoming Appointment Card -->
+<div class="px-4">
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-card-light dark:bg-card-dark overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-[2/1] bg-cover" data-alt="Image of a modern, clean dental office interior." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDs_0h1czYG4T4QwT-w-6SRgNUJ8ZFEdtctZ9w0Oh7pvJDcN10gyTeWkMTHIHf3ozZDrN8UawHV4WyFIq2F-8mqsv5-TMx4YaqUyz_SPXMasuGZd-pcCpxMXxGXr0VjQEL2nH4BN6VGTF271iaJuhtzs7hFjt_TcQwHfXKUlg7iJneFztYl8kTmO4-NeD-eavq_fJkIL-A7HzsEY63lPXTWt7cA9lwOuDIrISMt2nlpjNC3Z0MskQSsmWYv040m6VHJtSgcvrNhkK2y");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-4 p-4">
+<div class="flex items-start gap-4">
+<div class="flex items-center justify-center rounded-lg bg-primary/20 p-2">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+</div>
+<div class="flex-1">
+<p class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em]">Bright Smiles Dental</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">Tue, Oct 26 at 10:30 AM</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">Routine Check-up &amp; Cleaning</p>
+</div>
+</div>
+<a class="flex items-center justify-center gap-2 rounded-lg py-2.5 text-center text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-colors" href="#">
+<span class="material-symbols-outlined text-base">near_me</span>
+<span class="truncate">Get Directions</span>
+</a>
+<div class="flex flex-1 gap-3 flex-wrap">
+<button class="flex flex-1 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Reschedule</span>
+</button>
+<button class="flex flex-1 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-transparent text-text-secondary-light dark:text-text-secondary-dark text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Cancel</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Appointment History Section Header -->
+<h2 class="text-text-primary-light dark:text-text-primary-dark text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-8">Appointment History</h2>
+<!-- Past Appointments List -->
+<div class="flex flex-col gap-3 px-4">
+<!-- Past Appointment Item 1 -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl p-4 bg-card-light dark:bg-card-dark shadow-sm">
+<div class="flex-1">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-tight">City Dental Center</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal">Apr 15, 2024 - Wisdom Tooth Extraction</p>
+</div>
+<button class="flex w-full sm:w-auto min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary text-sm font-bold leading-normal">
+<span class="truncate">Re-book</span>
+</button>
+</div>
+<!-- Past Appointment Item 2 -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl p-4 bg-card-light dark:bg-card-dark shadow-sm">
+<div class="flex-1">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-tight">Bright Smiles Dental</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal">Oct 26, 2023 - Routine Check-up</p>
+</div>
+<button class="flex w-full sm:w-auto min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary text-sm font-bold leading-normal">
+<span class="truncate">Re-book</span>
+</button>
+</div>
+<!-- Past Appointment Item 3 (Empty State Example) -->
+<div class="flex flex-col items-center justify-center gap-4 rounded-xl p-8 bg-card-light/50 dark:bg-card-dark/50 border-2 border-dashed border-gray-300 dark:border-gray-600 mt-4 text-center">
+<span class="material-symbols-outlined text-5xl text-text-secondary-light dark:text-text-secondary-dark">event_busy</span>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-medium">No other appointments found.</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Time for a check-up?</p>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-6 right-6">
+<button class="flex items-center justify-center gap-2 h-14 w-14 sm:w-auto sm:px-6 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+<span class="hidden sm:inline font-bold">Book New</span>
+</button>
+</div>
+</div>
+</body></html>

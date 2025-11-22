@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dental Practice Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4A90E2",
+              "secondary": "#50E3C2",
+              "background-light": "#F4F7F9",
+              "background-dark": "#111a21",
+              "text-light": "#4A4A4A",
+              "text-dark": "#F4F7F9",
+              "neutral-light": "#F4F7F9",
+              "neutral-dark": "#2D3748",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem",
+              "lg": "0.75rem",
+              "xl": "1rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-start group/design-root overflow-x-hidden p-4 sm:p-6 lg:p-8">
+<div class="w-full max-w-2xl mx-auto">
+<!-- Top App Bar -->
+<div class="flex items-center justify-between pb-4">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">arrow_back</span>
+</button>
+<div class="text-center">
+<h2 class="text-lg font-bold leading-tight tracking-tight text-text-light dark:text-text-dark">Create your Profile</h2>
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Step 1 of 4</p>
+</div>
+<div class="size-10"></div> <!-- Spacer -->
+</div>
+<!-- Page Indicators / Progress Bar -->
+<div class="w-full bg-neutral-light dark:bg-neutral-dark rounded-full h-2 my-4">
+<div class="bg-primary h-2 rounded-full" style="width: 25%"></div>
+</div>
+<div class="bg-white dark:bg-background-dark/50 rounded-xl shadow-sm p-6 sm:p-8 mt-4">
+<!-- Step 1: Practice Information -->
+<div id="step-1">
+<!-- Headline Text -->
+<h1 class="text-text-light dark:text-text-dark tracking-tight text-2xl sm:text-3xl font-bold leading-tight text-left pb-6">Let's start with the basics</h1>
+<div class="flex flex-col gap-4">
+<!-- Practice Name TextField -->
+<label class="flex flex-col w-full">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal pb-2">Practice Name</p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-light/50 dark:text-text-dark/50">store</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-neutral-dark bg-neutral-light dark:bg-neutral-dark/60 h-14 placeholder:text-text-light/50 dark:placeholder:text-text-dark/50 pl-12 pr-4 py-3 text-base font-normal leading-normal" placeholder="Enter your practice name" value=""/>
+</div>
+</label>
+<!-- Practice Email TextField -->
+<label class="flex flex-col w-full">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal pb-2">Practice Email</p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-light/50 dark:text-text-dark/50">mail</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-neutral-dark bg-neutral-light dark:bg-neutral-dark/60 h-14 placeholder:text-text-light/50 dark:placeholder:text-text-dark/50 pl-12 pr-4 py-3 text-base font-normal leading-normal" placeholder="Enter your practice email" type="email" value=""/>
+</div>
+</label>
+<!-- Practice Phone Number TextField -->
+<label class="flex flex-col w-full">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal pb-2">Practice Phone Number</p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-light/50 dark:text-text-dark/50">call</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-neutral-dark bg-neutral-light dark:bg-neutral-dark/60 h-14 placeholder:text-text-light/50 dark:placeholder:text-text-dark/50 pl-12 pr-4 py-3 text-base font-normal leading-normal" placeholder="(123) 456-7890" type="tel" value=""/>
+</div>
+</label>
+<!-- Website (Optional) TextField -->
+<label class="flex flex-col w-full">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal pb-2">Website <span class="text-text-light/50 dark:text-text-dark/50 font-normal">(optional)</span></p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-light/50 dark:text-text-dark/50">language</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-neutral-dark bg-neutral-light dark:bg-neutral-dark/60 h-14 placeholder:text-text-light/50 dark:placeholder:text-text-dark/50 pl-12 pr-4 py-3 text-base font-normal leading-normal" placeholder="https://www.yourpractice.com" type="url" value=""/>
+</div>
+</label>
+</div>
+</div>
+<!-- Navigation Buttons -->
+<div class="flex items-center justify-end gap-4 pt-8">
+<button class="flex items-center justify-center h-12 px-6 rounded-lg text-base font-bold bg-primary text-white hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark w-full sm:w-auto">
+<span>Next Step</span>
+<span class="material-symbols-outlined ml-2">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

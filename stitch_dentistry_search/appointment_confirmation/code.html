@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Appointment Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4A90E2",
+              "background-light": "#f6f7f8",
+              "background-dark": "#111a21",
+              "text-light-primary": "#333333",
+              "text-dark-primary": "#f6f7f8",
+              "text-light-secondary": "#757575",
+              "text-dark-secondary": "#a0aec0",
+              "card-light": "#ffffff",
+              "card-dark": "#1a2935"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden text-text-light-primary dark:text-text-dark-primary">
+<!-- Top App Bar -->
+<div class="flex items-center bg-card-light dark:bg-card-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<button class="flex items-center justify-center size-12 -ml-3">
+<span class="material-symbols-outlined text-text-light-primary dark:text-text-dark-primary">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Confirmation</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-text-light-primary dark:text-text-dark-primary">share</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-grow px-4 pt-6 pb-24">
+<!-- Confirmation Header -->
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center justify-center size-16 bg-green-100 dark:bg-green-900/50 rounded-full mb-4">
+<span class="material-symbols-outlined text-3xl text-green-600 dark:text-green-400">check_circle</span>
+</div>
+<h1 class="text-3xl font-bold leading-tight tracking-tight">You're All Set!</h1>
+<p class="text-text-light-secondary dark:text-text-dark-secondary text-base font-normal leading-normal mt-2">We've sent a confirmation to your email. We look forward to seeing you!</p>
+</div>
+<!-- Appointment Summary Card -->
+<div class="mt-8 bg-card-light dark:bg-card-dark rounded-xl p-5 shadow-sm">
+<div class="flex items-center pb-4 border-b border-gray-200 dark:border-gray-700">
+<div class="w-12 h-12 bg-center bg-no-repeat bg-cover rounded-full" data-alt="Photo of Dr. Angela Merkel" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8zD5C2ChpeyKYAakv1w5iIPHxvorGEm53eN8YcBwLJL2GDxNIeIDcCAxCV6WAaRnxmmgScL7hPgGwc9WvgXdiFYaXgKSkI6jO_VA8_acZtxRV6f3j_pZNi8TA9LIowuXZ2mWdE_r4PIoKclbVu6f5mgb4kRvexmXgRCtNjCW_15ajMQXlSj4jTnQuMkllbgR4-mMPXDVJ8x52HL_lgtZBA8FZLI-Nt-0nuMVuIEmz4eizw5JEWPt3px8chlw1fRXDoUBzreN_DqIg");'></div>
+<div class="ml-4">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em]">Dr. Angela Merkel</p>
+<p class="text-sm font-normal leading-normal text-text-light-secondary dark:text-text-dark-secondary">Smile Bright Dentistry</p>
+</div>
+</div>
+<div class="space-y-4 pt-5">
+<div class="flex items-start">
+<span class="material-symbols-outlined text-primary mt-0.5">medical_services</span>
+<div class="ml-4">
+<p class="font-semibold">Annual Check-up &amp; Cleaning</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Service</p>
+</div>
+</div>
+<div class="flex items-start">
+<span class="material-symbols-outlined text-primary mt-0.5">calendar_today</span>
+<div class="ml-4">
+<p class="font-semibold">Tuesday, October 24, 2024</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Date</p>
+</div>
+</div>
+<div class="flex items-start">
+<span class="material-symbols-outlined text-primary mt-0.5">schedule</span>
+<div class="ml-4">
+<p class="font-semibold">10:30 AM</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Time</p>
+</div>
+</div>
+<div class="flex items-start">
+<span class="material-symbols-outlined text-primary mt-0.5">location_on</span>
+<div class="ml-4">
+<p class="font-semibold">123 Dental Way, Suite 200, Smileville, ST 12345</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Address</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Map -->
+<div class="mt-6">
+<div class="w-full bg-center bg-no-repeat bg-cover aspect-video rounded-xl" data-alt="Map showing the location of Smile Bright Dentistry" data-location="Smileville" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqCGcYUA6ypaoDeCkiEAtnjEmDY8NfJQwoHFY5gMA6ZBA6PKCLaxW5VjvA0RSqtKrkC080FFDKHAtFno-hExt2RaXaUlE2VQoQh3zBIYfM78Fj13ApgxVnxTmsLlNo74Jy0mrqpY-G-5bKV7cSsB-WIlUbrss3ta7iGMb9DAmbQAqOrBSa9XBZW05Z9uqRoFSVmpNeiLVoJW96f6ZGOZqu5YG9moNR_D9BVBeU7f-EHcq0dA_k8xvc6_MePzaXhDJtsFbKknpEwe1r");'></div>
+</div>
+<!-- Details & Price -->
+<div class="mt-6 space-y-4">
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-5 shadow-sm">
+<details>
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<h3 class="text-lg font-bold">Details &amp; Instructions</h3>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="mt-4 text-text-light-secondary dark:text-text-dark-secondary text-sm space-y-2">
+<p>• Please arrive 10 minutes early to complete any necessary paperwork.</p>
+<p>• Our clinic is located on the 2nd floor.</p>
+<p>• Street parking is available on Main St. and there is a paid lot behind the building.</p>
+</div>
+</details>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-5 shadow-sm flex justify-between items-center">
+<h3 class="text-lg font-bold">Estimated Cost</h3>
+<p class="text-lg font-bold text-text-light-primary dark:text-text-dark-primary">$150.00</p>
+</div>
+</div>
+<!-- Action Links -->
+<div class="mt-8 text-center space-y-2">
+<a class="text-primary font-medium text-sm" href="#">Reschedule Appointment</a>
+<span class="text-text-light-secondary dark:text-text-dark-secondary mx-2">•</span>
+<a class="text-primary font-medium text-sm" href="#">Contact Dentistry</a>
+</div>
+</main>
+<!-- Bottom Actions -->
+<div class="fixed bottom-0 left-0 w-full bg-card-light dark:bg-card-dark p-4 border-t border-gray-200 dark:border-gray-700">
+<div class="space-y-3">
+<button class="flex w-full min-w-[84px] max-w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 bg-primary text-white text-base font-bold">
+<span class="material-symbols-outlined mr-2">add_to_home_screen</span>
+<span class="truncate">Add to Calendar</span>
+</button>
+<button class="flex w-full min-w-[84px] max-w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 bg-primary/20 dark:bg-primary/30 text-primary text-base font-bold">
+<span class="truncate">Done</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

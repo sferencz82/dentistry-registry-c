@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage Staff</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A90E2", // Changed from #1990e6 to match request
+                        "background-light": "#F4F7F9",
+                        "background-dark": "#111a21",
+                        "text-primary-light": "#333333",
+                        "text-primary-dark": "#E0E0E0",
+                        "text-secondary-light": "#AAB2BD",
+                        "text-secondary-dark": "#AAB2BD",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1A242D",
+                        "border-light": "#EAECEF",
+                        "border-dark": "#2C3A47",
+                        "destructive": "#D0021B",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden antialiased">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex items-center bg-card-light dark:bg-card-dark p-4 shadow-sm">
+<button class="text-text-primary-light dark:text-text-primary-dark flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-text-primary-light dark:text-text-primary-dark text-xl font-bold leading-tight tracking-tight flex-1 text-center">Manage Staff</h1>
+<div class="w-10"></div> <!-- Spacer -->
+</header>
+<main class="flex flex-1 flex-col p-4 pb-24">
+<!-- Primary Action Button -->
+<div class="py-3">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Add New Staff</span>
+</button>
+</div>
+<!-- Search Bar -->
+<div class="py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-2 text-base font-normal leading-normal" placeholder="Search by name or role" value=""/>
+</div>
+</label>
+</div>
+<!-- Staff List -->
+<div class="flex flex-col gap-3 pt-4">
+<!-- Staff Card 1 -->
+<div class="flex items-center gap-4 bg-card-light dark:bg-card-dark p-3 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4 flex-1">
+<img class="object-cover rounded-full h-14 w-14" data-alt="Profile picture of Dr. Angela Martin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe2YuepcMbWgSIH7ffQq5UI4fXXHCI7idt0VCpva1Hcl5cU14s0eHLWt1IMSE4HRRQJ1KXyJX0pHxNOBFA2pflxRpwmvXIB8z5J-h2QFY3ipzgwErRun_UYGfI2H5w3qg-k63hsCFrOMmLV8cEdW-pSwSH3uu6_Mk84drqwC4qJI8nNAMItfRe8UJEDV8ZQl287k5Q0zH2ufk4xuLmk49qaxaqUHmHhKaV5ESRcCoUSWYu_yqrV2FVlufl6oZGfAo19PoeMTdsdw_s"/>
+<div class="flex flex-col justify-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-medium leading-normal line-clamp-1">Dr. Angela Martin</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal line-clamp-2">General Dentist</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-1">
+<button class="text-text-primary-light dark:text-text-primary-dark flex size-9 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="text-text-primary-light dark:text-text-primary-dark flex size-9 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Staff Card 2 -->
+<div class="flex items-center gap-4 bg-card-light dark:bg-card-dark p-3 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4 flex-1">
+<img class="object-cover rounded-full h-14 w-14" data-alt="Profile picture of Kevin Malone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoyWSvcwb6cZzrkhyr6oTGmVxg4lb_idHSesGKjA7OealQxhuD7PD6w0WXMlmMEY9TbonyD_4vEIb0h5Ag_DywfB97PX6WpvXTuxQDSaQ6d2NG0PaTcbZSNaoZSFc3xP8QQSSCoZUHVqQs8CO7zOv4z3Kw3M_q0mxrEMRJLOCoCLHI6wwqWHOYdA1unTBYdL4ChqeYHm5dqqZC6ZRD-yfqLSqq87IiSU5T9FTWKoA95OK7YVI4D5GXgGZr8iU0iMuFC6etNcKqIsc_"/>
+<div class="flex flex-col justify-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-medium leading-normal line-clamp-1">Kevin Malone</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal line-clamp-2">Hygienist</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-1">
+<button class="text-text-primary-light dark:text-text-primary-dark flex size-9 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="text-text-primary-light dark:text-text-primary-dark flex size-9 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Staff Card 3 -->
+<div class="flex items-center gap-4 bg-card-light dark:bg-card-dark p-3 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4 flex-1">
+<img class="object-cover rounded-full h-14 w-14" data-alt="Profile picture of Dr. Pam Beesly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxFfWc0WQyBgGiyoeax1dga6aqy7i9HHCA06JJlcZEptP5lhUfIa_UPYevJ1Ko6OlgMKEWiomFlpSNq2i6xQ0QjYB_jicMHvtzI5ouXPSMDpGRzmnSNKNeOqPOQwiCO-_WsQF1_MuW7GCQC9tQ60-d2Z2KGkeQUKrFZc1n_DUM66icsSjkxqAkAugnj0DOMX36DvJqrFuB0-eH9VzSnBLnVSq7ONCvaqGhgtxbE27nRb17FF1NrjMLRcHZrGUNx5EVvlKrVP_R6s2X"/>
+<div class="flex flex-col justify-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-medium leading-normal line-clamp-1">Dr. Pam Beesly</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal line-clamp-2">Orthodontist</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-1">
+<button class="text-text-primary-light dark:text-text-primary-dark flex size-9 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="text-text-primary-light dark:text-text-primary-dark flex size-9 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Staff Card 4 -->
+<div class="flex items-center gap-4 bg-card-light dark:bg-card-dark p-3 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4 flex-1">
+<img class="object-cover rounded-full h-14 w-14" data-alt="Profile picture of Stanley Hudson" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUcECTqK7W586V3k5onHoPEtI7aUui9yjae5XVsgV8yo5T-rOx-jKYhiVhfQObrF738W13WsS6AIE6VEfF75DYf16s3DVPQDkKF2UWeXsq45vjF_-BcoBgtUH8j7UWxwd_vcEZt6YXGwhY-_8xmpTyhQmg9u4y1GfctHQ0I4Ey_w1fKvCFq1idy4X9E2tmsuISXAAUkZsHr-M9hHbRoOTZp19hYf4rJVQu4_XTiyA5l9R1c5oolkWqq7ksWloFm7T_oiKzMQsS-cdy"/>
+<div class="flex flex-col justify-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-medium leading-normal line-clamp-1">Stanley Hudson</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal line-clamp-2">Dental Assistant</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-1">
+<button class="text-text-primary-light dark:text-text-primary-dark flex size-9 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="text-text-primary-light dark:text-text-primary-dark flex size-9 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Empty State Example (commented out) -->
+<!-- 
+                <div class="flex flex-col items-center justify-center text-center py-20 px-6">
+                    <span class="material-symbols-outlined text-7xl text-text-secondary-light dark:text-text-secondary-dark opacity-50">group_add</span>
+                    <h3 class="mt-4 text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">No Staff Members Yet</h3>
+                    <p class="mt-1 text-sm text-text-secondary-light dark:text-text-secondary-dark">Add your first staff member to get started.</p>
+                    <button class="mt-6 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-5 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                        <span class="material-symbols-outlined">add</span>
+                        <span class="truncate">Add Staff Member</span>
+                    </button>
+                </div>
+                -->
+</div>
+</main>
+</div>
+</body></html>
