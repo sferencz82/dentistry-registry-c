@@ -8,12 +8,14 @@ from uuid import uuid4
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, SQLModel, select
 
+from ..billing import ensure_premium_access
 from ..db import get_session
 from ..models import (
     AvailabilitySlot,
     BookingConfirmation,
     BookingCreate,
     ContactDetails,
+    Dentistry,
     KnowledgeBaseEntry,
     PatientCreate,
     Service,
@@ -181,6 +183,9 @@ def _complete_booking(
 def chat_message(payload: ChatMessageRequest, session: Session = Depends(get_session)):
     conversation_id = payload.conversation_id or str(uuid4())
     state = chat_sessions.get(conversation_id, ChatSessionState())
+
+    dentistry = session.get(Dentistry, payload.dentistry_id)
+    ensure_premium_access(dentistry)
 
     if "book" in payload.message.lower() and state.stage == "idle":
         return _start_booking(conversation_id, payload.dentistry_id)

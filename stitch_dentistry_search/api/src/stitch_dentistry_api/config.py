@@ -10,6 +10,10 @@ class APISettings(BaseSettings):
     port: int = 8000
     debug: bool = False
     database_url: str = "sqlite:///./local.db"
+    billing_provider: str = "stripe"
+    stripe_api_key: str | None = None
+    stripe_price_id: str | None = None
+    stripe_webhook_secret: str | None = None
 
 
 @lru_cache

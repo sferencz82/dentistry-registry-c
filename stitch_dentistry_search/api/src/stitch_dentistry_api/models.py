@@ -11,6 +11,14 @@ class SchemaMigration(SQLModel, table=True):
     applied_at: datetime = Field(default_factory=datetime.utcnow)
 
 
+class BillingStatus(str, Enum):
+    inactive = "inactive"
+    trialing = "trialing"
+    active = "active"
+    past_due = "past_due"
+    canceled = "canceled"
+
+
 class DentistryBase(SQLModel):
     name: str
     description: str | None = None
@@ -21,6 +29,10 @@ class DentistryBase(SQLModel):
 
 class Dentistry(DentistryBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
+    billing_status: BillingStatus = Field(default=BillingStatus.inactive)
+    billing_customer_id: str | None = None
+    billing_subscription_id: str | None = None
+    billing_provider: str | None = Field(default="stripe")
     services: list[Service] = Relationship(back_populates="dentistry")  # type: ignore[name-defined]
     staff_members: list[Staff] = Relationship(back_populates="dentistry")  # type: ignore[name-defined]
 
@@ -31,6 +43,10 @@ class DentistryCreate(DentistryBase):
 
 class DentistryRead(DentistryBase):
     id: int
+    billing_status: BillingStatus
+    billing_customer_id: str | None = None
+    billing_subscription_id: str | None = None
+    billing_provider: str | None = None
 
 
 class DentistryUpdate(SQLModel):
@@ -39,6 +55,10 @@ class DentistryUpdate(SQLModel):
     address: str | None = None
     phone: str | None = None
     email: str | None = None
+    billing_status: BillingStatus | None = None
+    billing_customer_id: str | None = None
+    billing_subscription_id: str | None = None
+    billing_provider: str | None = None
 
 
 class ServiceBase(SQLModel):
