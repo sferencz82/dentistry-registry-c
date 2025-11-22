@@ -89,3 +89,12 @@ def test_booking_rejects_missing_contact_for_preference(client):
     response = client.post("/appointments", json=payload)
     assert response.status_code == 400
     assert "Phone number required" in response.json()["detail"]
+def test_closest_availability_endpoint(client):
+    payload = {"dentistry_id": 1, "staff_id": 1, "service_id": 1}
+    response = client.get("/appointments/closest", params=payload)
+    assert response.status_code == 200
+
+    closest = response.json()
+    assert closest["dentistry_id"] == payload["dentistry_id"]
+    assert closest["staff_id"] == payload["staff_id"]
+    assert closest["is_booked"] is False
