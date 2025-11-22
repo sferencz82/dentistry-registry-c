@@ -21,10 +21,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: |
-            stitch_dentistry_search/web/package-lock.json
-            stitch_dentistry_search/mobile/package-lock.json
-            stitch_dentistry_search/shared/package-lock.json
+          cache-dependency-path: stitch_dentistry_search/${{ matrix.project }}/package.json
       - name: Install dependencies
         run: npm install
       - name: Lint
